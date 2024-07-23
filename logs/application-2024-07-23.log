@@ -1,0 +1,377 @@
+2024-07-22T18:46:30.149Z info: Event deleted successfully {
+  "id": "28"
+}
+2024-07-22T18:48:10.144Z info: Event created successfully {
+  "event": {
+    "id": 29,
+    "event_name": "OpcodeTech",
+    "date": "2024-09-06T00:00:00.000Z",
+    "description": "work",
+    "updatedAt": "2024-07-22T18:48:10.086Z",
+    "createdAt": "2024-07-22T18:48:10.086Z"
+  }
+}
+2024-07-22T18:48:36.413Z info: Event updated successfully {
+  "event": {
+    "id": 29,
+    "event_name": "OpcodeTeh",
+    "date": "2024-09-06T00:00:00.000Z",
+    "description": "work",
+    "createdAt": "2024-07-22T18:48:10.086Z",
+    "updatedAt": "2024-07-22T18:48:36.402Z"
+  }
+}
+2024-07-22T18:48:45.727Z info: Event deleted successfully {
+  "id": "29"
+}
+2024-07-23T03:49:19.799Z info: Fetched all events {
+  "events": [
+    {
+      "id": 1,
+      "event_name": "Event Name",
+      "date": "2024-07-18T00:00:00.000Z",
+      "description": "Event Description",
+      "createdAt": "2024-07-18T11:01:56.118Z",
+      "updatedAt": "2024-07-18T11:01:56.118Z"
+    },
+    {
+      "id": 3,
+      "event_name": "Name",
+      "date": "2024-07-25T00:00:00.000Z",
+      "description": "Name of event",
+      "createdAt": "2024-07-18T11:57:51.105Z",
+      "updatedAt": "2024-07-18T18:56:52.718Z"
+    },
+    {
+      "id": 9,
+      "event_name": "Deepan",
+      "date": "2024-09-04T00:00:00.000Z",
+      "description": "Birthday",
+      "createdAt": "2024-07-19T10:21:22.039Z",
+      "updatedAt": "2024-07-19T10:21:22.039Z"
+    },
+    {
+      "id": 11,
+      "event_name": "Deepan Kumar",
+      "date": "2024-09-04T00:00:00.000Z",
+      "description": "Birthday",
+      "createdAt": "2024-07-19T10:38:20.494Z",
+      "updatedAt": "2024-07-19T10:38:20.494Z"
+    },
+    {
+      "id": 13,
+      "event_name": "Sivaslapathy M",
+      "date": "2024-09-03T00:00:00.000Z",
+      "description": "Birthday",
+      "createdAt": "2024-07-19T10:44:40.938Z",
+      "updatedAt": "2024-07-19T10:48:37.188Z"
+    },
+    {
+      "id": 15,
+      "event_name": "Dad Bday",
+      "date": "2024-09-03T00:00:00.000Z",
+      "description": "Bday",
+      "createdAt": "2024-07-19T11:05:48.806Z",
+      "updatedAt": "2024-07-19T11:06:13.441Z"
+    },
+    {
+      "id": 16,
+      "event_name": "DK",
+      "date": "2024-09-05T00:00:00.000Z",
+      "description": "Deepan Kumar",
+      "createdAt": "2024-07-19T11:19:13.249Z",
+      "updatedAt": "2024-07-19T11:19:32.239Z"
+    },
+    {
+      "id": 19,
+      "event_name": "Opcode Technologies",
+      "date": "2024-09-05T00:00:00.000Z",
+      "description": "Working on the backend",
+      "createdAt": "2024-07-20T12:31:26.300Z",
+      "updatedAt": "2024-07-20T12:31:26.300Z"
+    },
+    {
+      "id": 25,
+      "event_name": "Opcode",
+      "date": "2024-09-06T00:00:00.000Z",
+      "description": "work",
+      "createdAt": "2024-07-22T18:30:38.863Z",
+      "updatedAt": "2024-07-22T18:30:38.863Z"
+    }
+  ]
+}
+2024-07-23T03:49:50.801Z info: Fetched all events {
+  "events": [
+    {
+      "id": 1,
+      "event_name": "Event Name",
+      "date": "2024-07-18T00:00:00.000Z",
+      "description": "Event Description",
+      "createdAt": "2024-07-18T11:01:56.118Z",
+      "updatedAt": "2024-07-18T11:01:56.118Z"
+    },
+    {
+      "id": 3,
+      "event_name": "Name",
+      "date": "2024-07-25T00:00:00.000Z",
+      "description": "Name of event",
+      "createdAt": "2024-07-18T11:57:51.105Z",
+      "updatedAt": "2024-07-18T18:56:52.718Z"
+    },
+    {
+      "id": 9,
+      "event_name": "Deepan",
+      "date": "2024-09-04T00:00:00.000Z",
+      "description": "Birthday",
+      "createdAt": "2024-07-19T10:21:22.039Z",
+      "updatedAt": "2024-07-19T10:21:22.039Z"
+    },
+    {
+      "id": 11,
+      "event_name": "Deepan Kumar",
+      "date": "2024-09-04T00:00:00.000Z",
+      "description": "Birthday",
+      "createdAt": "2024-07-19T10:38:20.494Z",
+      "updatedAt": "2024-07-19T10:38:20.494Z"
+    },
+    {
+      "id": 13,
+      "event_name": "Sivaslapathy M",
+      "date": "2024-09-03T00:00:00.000Z",
+      "description": "Birthday",
+      "createdAt": "2024-07-19T10:44:40.938Z",
+      "updatedAt": "2024-07-19T10:48:37.188Z"
+    },
+    {
+      "id": 15,
+      "event_name": "Dad Bday",
+      "date": "2024-09-03T00:00:00.000Z",
+      "description": "Bday",
+      "createdAt": "2024-07-19T11:05:48.806Z",
+      "updatedAt": "2024-07-19T11:06:13.441Z"
+    },
+    {
+      "id": 16,
+      "event_name": "DK",
+      "date": "2024-09-05T00:00:00.000Z",
+      "description": "Deepan Kumar",
+      "createdAt": "2024-07-19T11:19:13.249Z",
+      "updatedAt": "2024-07-19T11:19:32.239Z"
+    },
+    {
+      "id": 19,
+      "event_name": "Opcode Technologies",
+      "date": "2024-09-05T00:00:00.000Z",
+      "description": "Working on the backend",
+      "createdAt": "2024-07-20T12:31:26.300Z",
+      "updatedAt": "2024-07-20T12:31:26.300Z"
+    },
+    {
+      "id": 25,
+      "event_name": "Opcode",
+      "date": "2024-09-06T00:00:00.000Z",
+      "description": "work",
+      "createdAt": "2024-07-22T18:30:38.863Z",
+      "updatedAt": "2024-07-22T18:30:38.863Z"
+    }
+  ]
+}
+2024-07-23T03:52:59.855Z info: Event created successfully {
+  "event": {
+    "id": 31,
+    "event_name": "OpcodeTeh",
+    "date": "2024-09-06T00:00:00.000Z",
+    "description": "work",
+    "updatedAt": "2024-07-23T03:52:59.769Z",
+    "createdAt": "2024-07-23T03:52:59.769Z"
+  }
+}
+2024-07-23T04:09:14.177Z info: Fetched all events {
+  "events": [
+    {
+      "id": 1,
+      "event_name": "Event Name",
+      "date": "2024-07-18T00:00:00.000Z",
+      "description": "Event Description",
+      "createdAt": "2024-07-18T11:01:56.118Z",
+      "updatedAt": "2024-07-18T11:01:56.118Z"
+    },
+    {
+      "id": 3,
+      "event_name": "Name",
+      "date": "2024-07-25T00:00:00.000Z",
+      "description": "Name of event",
+      "createdAt": "2024-07-18T11:57:51.105Z",
+      "updatedAt": "2024-07-18T18:56:52.718Z"
+    },
+    {
+      "id": 9,
+      "event_name": "Deepan",
+      "date": "2024-09-04T00:00:00.000Z",
+      "description": "Birthday",
+      "createdAt": "2024-07-19T10:21:22.039Z",
+      "updatedAt": "2024-07-19T10:21:22.039Z"
+    },
+    {
+      "id": 11,
+      "event_name": "Deepan Kumar",
+      "date": "2024-09-04T00:00:00.000Z",
+      "description": "Birthday",
+      "createdAt": "2024-07-19T10:38:20.494Z",
+      "updatedAt": "2024-07-19T10:38:20.494Z"
+    },
+    {
+      "id": 13,
+      "event_name": "Sivaslapathy M",
+      "date": "2024-09-03T00:00:00.000Z",
+      "description": "Birthday",
+      "createdAt": "2024-07-19T10:44:40.938Z",
+      "updatedAt": "2024-07-19T10:48:37.188Z"
+    },
+    {
+      "id": 15,
+      "event_name": "Dad Bday",
+      "date": "2024-09-03T00:00:00.000Z",
+      "description": "Bday",
+      "createdAt": "2024-07-19T11:05:48.806Z",
+      "updatedAt": "2024-07-19T11:06:13.441Z"
+    },
+    {
+      "id": 16,
+      "event_name": "DK",
+      "date": "2024-09-05T00:00:00.000Z",
+      "description": "Deepan Kumar",
+      "createdAt": "2024-07-19T11:19:13.249Z",
+      "updatedAt": "2024-07-19T11:19:32.239Z"
+    },
+    {
+      "id": 19,
+      "event_name": "Opcode Technologies",
+      "date": "2024-09-05T00:00:00.000Z",
+      "description": "Working on the backend",
+      "createdAt": "2024-07-20T12:31:26.300Z",
+      "updatedAt": "2024-07-20T12:31:26.300Z"
+    },
+    {
+      "id": 25,
+      "event_name": "Opcode",
+      "date": "2024-09-06T00:00:00.000Z",
+      "description": "work",
+      "createdAt": "2024-07-22T18:30:38.863Z",
+      "updatedAt": "2024-07-22T18:30:38.863Z"
+    },
+    {
+      "id": 32,
+      "event_name": "OpcodeTeh",
+      "date": "2024-09-06T00:00:00.000Z",
+      "description": "work",
+      "createdAt": "2024-07-23T04:07:42.879Z",
+      "updatedAt": "2024-07-23T04:07:42.879Z"
+    }
+  ]
+}
+2024-07-23T04:15:07.573Z info: Event deleted successfully {
+  "id": "32"
+}
+2024-07-23T04:23:11.846Z info: Event created successfully {
+  "event": {
+    "id": 33,
+    "event_name": "OpcodeTeh",
+    "date": "2024-09-06T00:00:00.000Z",
+    "description": "work",
+    "updatedAt": "2024-07-23T04:23:11.787Z",
+    "createdAt": "2024-07-23T04:23:11.787Z"
+  }
+}
+2024-07-23T04:24:01.966Z warn: Event not found {
+  "id": "32"
+}
+2024-07-23T04:24:16.696Z info: Event updated successfully {
+  "event": {
+    "id": 33,
+    "event_name": "OpcodeTech",
+    "date": "2024-09-06T00:00:00.000Z",
+    "description": "work",
+    "createdAt": "2024-07-23T04:23:11.787Z",
+    "updatedAt": "2024-07-23T04:24:16.691Z"
+  }
+}
+2024-07-23T04:56:44.185Z info: Event deleted successfully {
+  "id": "33"
+}
+2024-07-23T05:02:40.314Z info: Fetched all events {
+  "events": [
+    {
+      "id": 1,
+      "event_name": "Event Name",
+      "date": "2024-07-18T00:00:00.000Z",
+      "description": "Event Description",
+      "createdAt": "2024-07-18T11:01:56.118Z",
+      "updatedAt": "2024-07-18T11:01:56.118Z"
+    },
+    {
+      "id": 3,
+      "event_name": "Name",
+      "date": "2024-07-25T00:00:00.000Z",
+      "description": "Name of event",
+      "createdAt": "2024-07-18T11:57:51.105Z",
+      "updatedAt": "2024-07-18T18:56:52.718Z"
+    },
+    {
+      "id": 9,
+      "event_name": "Deepan",
+      "date": "2024-09-04T00:00:00.000Z",
+      "description": "Birthday",
+      "createdAt": "2024-07-19T10:21:22.039Z",
+      "updatedAt": "2024-07-19T10:21:22.039Z"
+    },
+    {
+      "id": 11,
+      "event_name": "Deepan Kumar",
+      "date": "2024-09-04T00:00:00.000Z",
+      "description": "Birthday",
+      "createdAt": "2024-07-19T10:38:20.494Z",
+      "updatedAt": "2024-07-19T10:38:20.494Z"
+    },
+    {
+      "id": 13,
+      "event_name": "Sivaslapathy M",
+      "date": "2024-09-03T00:00:00.000Z",
+      "description": "Birthday",
+      "createdAt": "2024-07-19T10:44:40.938Z",
+      "updatedAt": "2024-07-19T10:48:37.188Z"
+    },
+    {
+      "id": 15,
+      "event_name": "Dad Bday",
+      "date": "2024-09-03T00:00:00.000Z",
+      "description": "Bday",
+      "createdAt": "2024-07-19T11:05:48.806Z",
+      "updatedAt": "2024-07-19T11:06:13.441Z"
+    },
+    {
+      "id": 16,
+      "event_name": "DK",
+      "date": "2024-09-05T00:00:00.000Z",
+      "description": "Deepan Kumar",
+      "createdAt": "2024-07-19T11:19:13.249Z",
+      "updatedAt": "2024-07-19T11:19:32.239Z"
+    },
+    {
+      "id": 19,
+      "event_name": "Opcode Technologies",
+      "date": "2024-09-05T00:00:00.000Z",
+      "description": "Working on the backend",
+      "createdAt": "2024-07-20T12:31:26.300Z",
+      "updatedAt": "2024-07-20T12:31:26.300Z"
+    },
+    {
+      "id": 25,
+      "event_name": "Opcode",
+      "date": "2024-09-06T00:00:00.000Z",
+      "description": "work",
+      "createdAt": "2024-07-22T18:30:38.863Z",
+      "updatedAt": "2024-07-22T18:30:38.863Z"
+    }
+  ]
+}
