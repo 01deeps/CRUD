@@ -17,10 +17,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // src/config/logger.ts
 const winston_1 = require("winston");
 const winston_daily_rotate_file_1 = __importDefault(require("winston-daily-rotate-file")); // Correct way to import DailyRotateFile
-const logFormat = winston_1.format.combine(winston_1.format.timestamp(), winston_1.format.printf((_a) => {
+// Define the log format combining timestamp and printf
+const logFormat = winston_1.format.combine(winston_1.format.timestamp(), // Add a timestamp to each log entry
+winston_1.format.printf((_a) => {
     var { timestamp, level, message } = _a, meta = __rest(_a, ["timestamp", "level", "message"]);
     return `${timestamp} ${level}: ${message} ${Object.keys(meta).length ? JSON.stringify(meta, null, 2) : ''}`;
-}));
+}) // Custom format for log output
+);
+// Create a logger instance with specified format and transports
 const logger = (0, winston_1.createLogger)({
     format: logFormat,
     transports: [
@@ -33,6 +37,7 @@ const logger = (0, winston_1.createLogger)({
             zippedArchive: true // Enable file compression
         })
     ],
-    exitOnError: false
+    exitOnError: false // Prevent the logger from exiting on error
 });
+// Export the logger instance
 exports.default = logger;
