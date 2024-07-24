@@ -19,7 +19,7 @@ router.put('/events/:id', auth_1.default.authenticateJWT, auth_1.default.authori
     console.log('PUT /events/:id route hit');
     next();
 }, EventController_1.default.updateEvent);
-router.delete('/events/:id', auth_1.default.authenticateJWT, auth_1.default.authorizeRoles('admin'), (req, res, next) => {
+router.delete('/events/:id', auth_1.default.authenticateJWT, auth_1.default.authorizeRoles('user', 'admin'), (req, res, next) => {
     console.log('DELETE /events/:id route hit');
     next();
 }, EventController_1.default.deleteEvent);

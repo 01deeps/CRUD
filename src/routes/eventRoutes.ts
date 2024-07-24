@@ -19,7 +19,7 @@ router.put('/events/:id', authMiddleware.authenticateJWT, authMiddleware.authori
   next();
 }, EventController.updateEvent);
 
-router.delete('/events/:id', authMiddleware.authenticateJWT, authMiddleware.authorizeRoles('admin'), (req, res, next) => {
+router.delete('/events/:id', authMiddleware.authenticateJWT, authMiddleware.authorizeRoles('user', 'admin'), (req, res, next) => {
   console.log('DELETE /events/:id route hit');
   next();
 }, EventController.deleteEvent);

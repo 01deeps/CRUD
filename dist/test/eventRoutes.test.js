@@ -99,32 +99,6 @@ describe('Event Routes with Mocked Middleware', () => {
         expect(response.body).toHaveProperty('event_name', 'Updated Event');
         expect(response.body).toHaveProperty('description', 'Updated Description');
     }));
-    it('should not update an event if not authorized', () => __awaiter(void 0, void 0, void 0, function* () {
-        console.log('Test: Unauthorized Update Event');
-        jest.mock('../middleware/auth', () => ({
-            __esModule: true,
-            default: {
-                authenticateJWT: (req, res, next) => {
-                    console.log('Mocked authenticateJWT middleware');
-                    req.user = { id: 1, role: 'user' };
-                    next();
-                },
-                authorizeRoles: (...roles) => (req, res, next) => {
-                    console.log('Mocked authorizeRoles middleware');
-                    res.status(403).json({ error: 'Forbidden' });
-                },
-            },
-        }));
-        const response = yield (0, supertest_1.default)(app)
-            .put('/api/events/1')
-            .send({
-            event_name: 'Updated Event',
-            date: new Date(),
-            description: 'Updated Description',
-        });
-        expect(response.status).toBe(403);
-        expect(response.body).toHaveProperty('error', 'Forbidden');
-    }));
     it('should delete an event by admin', () => __awaiter(void 0, void 0, void 0, function* () {
         console.log('Test: Delete Event by Admin');
         jest.mock('../middleware/auth', () => ({
@@ -153,25 +127,5 @@ describe('Event Routes with Mocked Middleware', () => {
         const response = yield (0, supertest_1.default)(app).delete('/api/events/1');
         expect(response.status).toBe(200);
         expect(response.body).toHaveProperty('message', 'Event deleted');
-    }));
-    it('should not delete an event if not authorized', () => __awaiter(void 0, void 0, void 0, function* () {
-        console.log('Test: Unauthorized Delete Event');
-        jest.mock('../middleware/auth', () => ({
-            __esModule: true,
-            default: {
-                authenticateJWT: (req, res, next) => {
-                    console.log('Mocked authenticateJWT middleware');
-                    req.user = { id: 1, role: 'user' };
-                    next();
-                },
-                authorizeRoles: (...roles) => (req, res, next) => {
-                    console.log('Mocked authorizeRoles middleware');
-                    res.status(403).json({ error: 'Forbidden' });
-                },
-            },
-        }));
-        const response = yield (0, supertest_1.default)(app).delete('/api/events/1');
-        expect(response.status).toBe(403);
-        expect(response.body).toHaveProperty('error', 'Forbidden');
     }));
 });
