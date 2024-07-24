@@ -1,0 +1,6 @@
+{"err":{"message":"jwt must be provided","name":"JsonWebTokenError"},"level":"error","message":"Error verifying token","timestamp":"2024-07-23T11:54:22.178Z"}
+{"error":{},"level":"error","message":"Error creating event","timestamp":"2024-07-23T11:55:52.723Z"}
+{"error":{},"level":"error","message":"Error creating event","timestamp":"2024-07-23T11:56:14.196Z"}
+{"err":{"message":"jwt must be provided","name":"JsonWebTokenError"},"level":"error","message":"Error verifying token","timestamp":"2024-07-23T11:56:42.520Z"}
+{"err":{"message":"jwt must be provided","name":"JsonWebTokenError"},"level":"error","message":"Error verifying token","timestamp":"2024-07-23T12:00:39.268Z"}
+{"err":{"message":"jwt must be provided","name":"JsonWebTokenError"},"level":"error","message":"Error verifying token","timestamp":"2024-07-23T12:03:23.201Z"}

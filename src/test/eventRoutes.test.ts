@@ -1,26 +1,54 @@
-// src/__tests__/eventRoutes.test.ts
 import request from 'supertest';
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import eventRoutes from '../routes/eventRoutes';
 import EventController from '../controllers/EventController';
+import authMiddleware from '../middleware/auth';
+
 
 // Create an instance of express and apply the routes
 const app = express();
 app.use(express.json()); // Middleware to parse JSON bodies
 app.use('/api', eventRoutes); // Apply event routes to the /api path
 
-// Mock the controller methods
-jest.mock('../controllers/EventController');
+// Mock middleware with console logs
+jest.mock('../middleware/auth', () => ({
+  __esModule: true,
+  authenticateJWT: (req: Request, res: Response, next: NextFunction) => {
+    console.log('authenticateJWT called');
+    next();
+  },
+  authorizeRoles: (roles: string[]) => (req: Request, res: Response, next: NextFunction) => {
+    console.log(`authorizeRoles called with roles: ${roles}`);
+    next();
+  },
+}));
+
+// Mock EventController methods
+jest.mock('../controllers/EventController', () => ({
+  __esModule: true,
+  default: {
+    createEvent: jest.fn(),
+    getEvents: jest.fn(),
+    updateEvent: jest.fn(),
+    deleteEvent: jest.fn()
+  }
+}));
 
 describe('Event Routes', () => {
+  const mockCreateEvent = EventController.createEvent as jest.Mock;
+  const mockGetEvents = EventController.getEvents as jest.Mock;
+  const mockUpdateEvent = EventController.updateEvent as jest.Mock;
+  const mockDeleteEvent = EventController.deleteEvent as jest.Mock;
+
+  beforeEach(() => {
+    jest.resetAllMocks();
+  });
+
   it('should create an event', async () => {
-    const mockCreateEvent = EventController.createEvent as jest.Mock;
-    // Mock implementation of createEvent method
-    mockCreateEvent.mockImplementation((req, res) => {
+    mockCreateEvent.mockImplementation((req: Request, res: Response) => {
       res.status(201).json({ id: 1, ...req.body });
     });
 
-    // Send a POST request to create an event
     const response = await request(app)
       .post('/api/events')
       .send({
@@ -29,7 +57,6 @@ describe('Event Routes', () => {
         description: 'New Event Description',
       });
 
-    // Assertions to check response status and body
     expect(response.status).toBe(201);
     expect(response.body).toHaveProperty('id', 1);
     expect(response.body).toHaveProperty('event_name', 'New Event');
@@ -37,28 +64,21 @@ describe('Event Routes', () => {
   });
 
   it('should get all events', async () => {
-    const mockGetEvents = EventController.getEvents as jest.Mock;
-    // Mock implementation of getEvents method
-    mockGetEvents.mockImplementation((req, res) => {
+    mockGetEvents.mockImplementation((req: Request, res: Response) => {
       res.status(200).json([{ id: 1, event_name: 'Event 1', description: 'Description 1' }]);
     });
 
-    // Send a GET request to retrieve all events
     const response = await request(app).get('/api/events');
 
-    // Assertions to check response status and body
     expect(response.status).toBe(200);
     expect(response.body.length).toBeGreaterThan(0);
   });
 
   it('should update an event', async () => {
-    const mockUpdateEvent = EventController.updateEvent as jest.Mock;
-    // Mock implementation of updateEvent method
-    mockUpdateEvent.mockImplementation((req, res) => {
+    mockUpdateEvent.mockImplementation((req: Request, res: Response) => {
       res.status(200).json({ id: req.params.id, ...req.body });
     });
 
-    // Send a PUT request to update an event
     const response = await request(app)
       .put('/api/events/1')
       .send({
@@ -67,7 +87,6 @@ describe('Event Routes', () => {
         description: 'Updated Description',
       });
 
-    // Assertions to check response status and body
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('id', '1');
     expect(response.body).toHaveProperty('event_name', 'Updated Event');
@@ -75,17 +94,54 @@ describe('Event Routes', () => {
   });
 
   it('should delete an event', async () => {
-    const mockDeleteEvent = EventController.deleteEvent as jest.Mock;
-    // Mock implementation of deleteEvent method
-    mockDeleteEvent.mockImplementation((req, res) => {
+    mockDeleteEvent.mockImplementation((req: Request, res: Response) => {
       res.status(200).json({ message: 'Event deleted' });
     });
 
-    // Send a DELETE request to delete an event
     const response = await request(app).delete('/api/events/1');
 
-    // Assertions to check response status and body
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('message', 'Event deleted');
+  });
+
+  // Test cases for unauthorized access
+  it('should return 401 for create event without auth', async () => {
+    // Mock middleware to simulate authentication failure
+    jest.mock('../middleware/auth', () => ({
+      __esModule: true,
+      authenticateJWT: (req: Request, res: Response, next: NextFunction) => {
+        console.log('authenticateJWT called - unauthorized');
+        res.status(401).json({ error: 'Unauthorized' });
+      },
+      authorizeRoles: (roles: string[]) => (req: Request, res: Response, next: NextFunction) => next(),
+    }));
+
+    const response = await request(app)
+      .post('/api/events')
+      .send({
+        event_name: 'New Event',
+        date: new Date(),
+        description: 'New Event Description',
+      });
+
+    expect(response.status).toBe(401);
+    expect(response.body).toHaveProperty('error', 'Unauthorized');
+  });
+
+  it('should return 403 for unauthorized role', async () => {
+    // Mock middleware to simulate role-based access control failure
+    jest.mock('../middleware/auth', () => ({
+      __esModule: true,
+      authenticateJWT: (req: Request, res: Response, next: NextFunction) => next(),
+      authorizeRoles: (roles: string[]) => (req: Request, res: Response, next: NextFunction) => {
+        console.log(`authorizeRoles called with roles: ${roles} - forbidden`);
+        res.status(403).json({ error: 'Forbidden' });
+      },
+    }));
+
+    const response = await request(app).delete('/api/events/1');
+
+    expect(response.status).toBe(403);
+    expect(response.body).toHaveProperty('error', 'Forbidden');
   });
 });

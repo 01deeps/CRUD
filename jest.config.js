@@ -6,5 +6,6 @@ module.exports = {
     coverageDirectory: 'coverage',
     collectCoverage: true,
     collectCoverageFrom: ['src/**/*.ts'],
+    setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   };
   

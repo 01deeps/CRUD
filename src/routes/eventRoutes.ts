@@ -1,21 +1,13 @@
-// src/routes/eventRoutes.ts
 import { Router } from 'express';
 import EventController from '../controllers/EventController';
+import authMiddleware from '../middleware/auth';
 
-// Create a new router instance
 const router = Router();
 
-// Define the route for creating a new event
-router.post('/events', EventController.createEvent);
+// Apply the middleware to the routes
+router.post('/events', authMiddleware.authenticateJWT, authMiddleware.authorizeRoles('user', 'admin'), EventController.createEvent);
+router.get('/events', authMiddleware.authenticateJWT, authMiddleware.authorizeRoles('user', 'admin'), EventController.getEvents);
+router.put('/events/:id', authMiddleware.authenticateJWT, authMiddleware.authorizeRoles('user', 'admin'), EventController.updateEvent);
+router.delete('/events/:id', authMiddleware.authenticateJWT, authMiddleware.authorizeRoles('admin'), EventController.deleteEvent);
 
-// Define the route for fetching all events
-router.get('/events', EventController.getEvents);
-
-// Define the route for updating an event by its ID
-router.put('/events/:id', EventController.updateEvent);
-
-// Define the route for deleting an event by its ID
-router.delete('/events/:id', EventController.deleteEvent);
-
-// Export the router to be used in the main application
 export default router;

@@ -1,16 +1,28 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// src/controllers/EventController.ts
-const EventService_1 = __importDefault(require("../services/EventService"));
 class EventController {
     constructor() {
-        this.createEvent = EventService_1.default.createEvent;
-        this.getEvents = EventService_1.default.getEvents;
-        this.updateEvent = EventService_1.default.updateEvent;
-        this.deleteEvent = EventService_1.default.deleteEvent;
+        this.createEvent = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            // Your implementation here
+        });
+        this.getEvents = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            // Your implementation here
+        });
+        this.updateEvent = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            // Your implementation here
+        });
+        this.deleteEvent = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            // Your implementation here
+        });
     }
 }
 exports.default = new EventController();

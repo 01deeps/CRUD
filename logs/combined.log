@@ -1,0 +1,18 @@
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2024-07-23T11:53:55.820Z"}
+{"err":{"message":"jwt must be provided","name":"JsonWebTokenError"},"level":"error","message":"Error verifying token","timestamp":"2024-07-23T11:54:22.178Z"}
+{"level":"warn","message":"No authorization header.","timestamp":"2024-07-23T11:54:26.649Z"}
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2024-07-23T11:55:48.892Z"}
+{"error":{},"level":"error","message":"Error creating event","timestamp":"2024-07-23T11:55:52.723Z"}
+{"error":{},"level":"error","message":"Error creating event","timestamp":"2024-07-23T11:56:14.196Z"}
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2024-07-23T11:56:25.381Z"}
+{"level":"warn","message":"No authorization header.","timestamp":"2024-07-23T11:56:30.007Z"}
+{"err":{"message":"jwt must be provided","name":"JsonWebTokenError"},"level":"error","message":"Error verifying token","timestamp":"2024-07-23T11:56:42.520Z"}
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2024-07-23T12:00:34.474Z"}
+{"err":{"message":"jwt must be provided","name":"JsonWebTokenError"},"level":"error","message":"Error verifying token","timestamp":"2024-07-23T12:00:39.268Z"}
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2024-07-23T12:00:49.096Z"}
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2024-07-23T12:02:17.073Z"}
+{"err":{"message":"jwt must be provided","name":"JsonWebTokenError"},"level":"error","message":"Error verifying token","timestamp":"2024-07-23T12:03:23.201Z"}
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2024-07-23T12:04:48.980Z"}
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2024-07-23T12:05:17.281Z"}
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2024-07-23T12:05:38.032Z"}
+{"level":"info","message":"Server is running on http://localhost:3000","timestamp":"2024-07-23T12:07:07.986Z"}

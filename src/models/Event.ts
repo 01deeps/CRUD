@@ -1,49 +1,53 @@
-// src/models/Event.ts
-import { Model, DataTypes } from 'sequelize';
+import { Model, DataTypes, Optional } from 'sequelize';
 import { database } from '../config/database';
 
-// Define the Event model class
-class Event extends Model {
-  // Model attributes with TypeScript type definitions
+interface EventAttributes {
+  id: number;
+  event_name: string;
+  date: Date;
+  description: string;
+  userId: number;
+}
+
+interface EventCreationAttributes extends Optional<EventAttributes, 'id'> {}
+
+class Event extends Model<EventAttributes, EventCreationAttributes> implements EventAttributes {
   public id!: number;
   public event_name!: string;
   public date!: Date;
   public description!: string;
+  public userId!: number;
 
-  // Timestamps
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 }
 
-// Initialize the Event model with its attributes and options
 Event.init(
   {
-    // Unique identifier for the event, auto-incremented
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
     },
-    // Name of the event
     event_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // Date of the event
     date: {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    // Description of the event
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   },
   {
-    // Sequelize instance
     sequelize: database.getInstance(),
-    // Table name in the database
     tableName: 'events',
   }
 );
