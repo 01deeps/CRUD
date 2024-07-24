@@ -7,5 +7,9 @@ module.exports = {
     collectCoverage: true,
     collectCoverageFrom: ['src/**/*.ts'],
     setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
-  };
+    "transform": {
+  "^.+\\.ts$": "ts-jest"
+},
+"moduleFileExtensions": ["ts", "js"]
+};
   

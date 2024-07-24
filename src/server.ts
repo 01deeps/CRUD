@@ -9,11 +9,11 @@ const port = 3000;
 
 app.use(bodyParser.json());
 
-app.use('/api/events', eventRoutes);
-app.use('/api/users', userRoutes);
+app.use('/api/work', eventRoutes);
+app.use('/api', userRoutes);
 
 app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
-  console.error(err.stack);
+  console.error('Internal Server Error:', err.stack);
   res.status(500).send('Internal Server Error');
 });
 

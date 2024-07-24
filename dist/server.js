@@ -11,10 +11,10 @@ const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
 const app = (0, express_1.default)();
 const port = 3000;
 app.use(body_parser_1.default.json());
-app.use('/api/events', eventRoutes_1.default);
-app.use('/api/users', userRoutes_1.default);
+app.use('/api/work', eventRoutes_1.default);
+app.use('/api', userRoutes_1.default);
 app.use((err, req, res, next) => {
-    console.error(err.stack);
+    console.error('Internal Server Error:', err.stack);
     res.status(500).send('Internal Server Error');
 });
 database_1.database.connect().then(() => {

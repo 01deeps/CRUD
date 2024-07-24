@@ -51,5 +51,6 @@ Event.init(
     tableName: 'events',
   }
 );
+console.log('Event model initialized');
 
 export default Event;

@@ -3,34 +3,45 @@ import jwt from 'jsonwebtoken';
 import logger from '../config/logger';
 
 class AuthMiddleware {
-    public authenticateJWT = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-      const token = req.headers.authorization?.split(' ')[1];
-      if (token) {
-        try {
-          const decoded: any = jwt.verify(token, process.env.JWT_SECRET as string);
-          req.user = decoded;
-          next();
-        } catch (error) {
-          logger.warn('Invalid Token');
-          res.status(403).json({ error: 'Forbidden' });
-        }
+  public async authenticateJWT(req: Request, res: Response, next: NextFunction): Promise<void> {
+    console.log('authenticateJWT: Start');
+    const token = req.headers.authorization?.split(' ')[1];
+
+    if (token) {
+      try {
+        console.log('authenticateJWT: Token found');
+        const decoded: any = jwt.verify(token, process.env.JWT_SECRET as string);
+        console.log('authenticateJWT: Token verified', decoded);
+        req.user = decoded;
+        next();
+      } catch (error) {
+        console.log('authenticateJWT: Invalid Token', error);
+        logger.warn('Invalid Token');
+        res.status(403).json({ error: 'Forbidden' });
+      }
+    } else {
+      console.log('authenticateJWT: No Token Provided');
+      logger.warn('No Token Provided');
+      res.status(401).json({ error: 'Unauthorized' });
+    }
+  }
+
+  public authorizeRoles(...roles: string[]) {
+    return (req: Request, res: Response, next: NextFunction): void => {
+      console.log('authorizeRoles: Start');
+      console.log('authorizeRoles: Required roles', roles);
+      console.log('authorizeRoles: User role', req.user.role);
+      if (!roles.includes(req.user.role)) {
+        console.log(`authorizeRoles: User role ${req.user.role} not authorized`);
+        logger.warn(`User role ${req.user.role} not authorized`);
+        res.status(403).json({ error: 'Forbidden' });
       } else {
-        logger.warn('No Token Provided');
-        res.status(401).json({ error: 'Unauthorized' });
+        console.log(`authorizeRoles: User role ${req.user.role} authorized`);
+        next();
       }
     };
-  
-    public authorizeRoles = (...roles: string[]) => {
-      return (req: Request, res: Response, next: NextFunction): void => {
-        if (!roles.includes(req.user.role)) {
-          logger.warn(`User role ${req.user.role} not authorized`);
-          res.status(403).json({ error: 'Forbidden' });
-        } else {
-          next();
-        }
-      };
-    };
   }
-  
-  const authMiddleware = new AuthMiddleware();
-  export default authMiddleware;
+}
+
+const authMiddleware = new AuthMiddleware();
+export default authMiddleware;

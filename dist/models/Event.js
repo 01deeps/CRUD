@@ -30,4 +30,5 @@ Event.init({
     sequelize: database_1.database.getInstance(),
     tableName: 'events',
 });
+console.log('Event model initialized');
 exports.default = Event;
