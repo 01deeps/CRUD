@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1721824108803" clover="3.2.0">
-  <project timestamp="1721824108804" name="All files">
-    <metrics statements="252" coveredstatements="54" conditionals="45" coveredconditionals="5" methods="32" coveredmethods="6" elements="329" coveredelements="65" complexity="0" loc="252" ncloc="252" packages="8" files="13" classes="13"/>
+<coverage generated="1721846836157" clover="3.2.0">
+  <project timestamp="1721846836157" name="All files">
+    <metrics statements="257" coveredstatements="54" conditionals="45" coveredconditionals="5" methods="36" coveredmethods="6" elements="338" coveredelements="65" complexity="0" loc="257" ncloc="257" packages="8" files="13" classes="13"/>
     <package name="src">
-      <metrics statements="17" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <metrics statements="22" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="0"/>
       <file name="server.ts" path="E:\alp\OPCODE\Logger\Opcode\src\server.ts">
-        <metrics statements="17" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <metrics statements="22" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.config">
@@ -202,7 +207,7 @@
         <line num="5" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.services">
