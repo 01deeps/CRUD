@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">37.93% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/29</span>
+                <span class='fraction'>0/29</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/8</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">37.93% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/29</span>
+                <span class='fraction'>0/29</span>
             </div>
         
             
@@ -111,35 +111,14 @@
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -150,23 +129,44 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Request, Response, NextFunction } from 'express';
-import jwt from 'jsonwebtoken';
-import logger from '../config/logger';
+<span class="cstat-no" title="statement not covered" >import jwt from 'jsonwebtoken';</span>
+<span class="cstat-no" title="statement not covered" >import logger from '../config/logger';</span>
 &nbsp;
 class AuthMiddleware {
-  public async authenticateJWT(req: Request, res: Response, next: NextFunction): Promise&lt;void&gt; {
-    console.log('authenticateJWT: Start');
-    const token = req.headers.authorization<span class="branch-1 cbranch-no" title="branch not covered" >?.split(' ')[1];</span>
+  public async <span class="fstat-no" title="function not covered" >authenticateJWT(</span>req: Request, res: Response, next: NextFunction): Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" >    console.log('authenticateJWT: Start');</span>
+    const token = <span class="cstat-no" title="statement not covered" >req.headers.authorization?.split(' ')[1];</span>
 &nbsp;
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (token) {
+<span class="cstat-no" title="statement not covered" >    if (token) {</span>
 <span class="cstat-no" title="statement not covered" >      try {</span>
 <span class="cstat-no" title="statement not covered" >        console.log('authenticateJWT: Token found');</span>
         const decoded: any = <span class="cstat-no" title="statement not covered" >jwt.verify(token, process.env.JWT_SECRET as string);</span>
@@ -179,14 +179,14 @@ class AuthMiddleware {
 <span class="cstat-no" title="statement not covered" >        res.status(403).json({ error: 'Forbidden' });</span>
       }
     } else {
-      console.log('authenticateJWT: No Token Provided');
-      logger.warn('No Token Provided');
-      res.status(401).json({ error: 'Unauthorized' });
+<span class="cstat-no" title="statement not covered" >      console.log('authenticateJWT: No Token Provided');</span>
+<span class="cstat-no" title="statement not covered" >      logger.warn('No Token Provided');</span>
+<span class="cstat-no" title="statement not covered" >      res.status(401).json({ error: 'Unauthorized' });</span>
     }
   }
 &nbsp;
-  public authorizeRoles(...roles: string[]) {
-    return <span class="fstat-no" title="function not covered" >(r</span>eq: Request, res: Response, next: NextFunction): void =&gt; {
+  public <span class="fstat-no" title="function not covered" >authorizeRoles(</span>...roles: string[]) {
+<span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >(r</span>eq: Request, res: Response, next: NextFunction): void =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      console.log('authorizeRoles: Start');</span>
 <span class="cstat-no" title="statement not covered" >      console.log('authorizeRoles: Required roles', roles);</span>
 <span class="cstat-no" title="statement not covered" >      console.log('authorizeRoles: User role', req.user.role);</span>
@@ -202,8 +202,8 @@ class AuthMiddleware {
   }
 }
 &nbsp;
-const authMiddleware = new AuthMiddleware();
-export default authMiddleware;
+const authMiddleware = <span class="cstat-no" title="statement not covered" >new AuthMiddleware();</span>
+<span class="cstat-no" title="statement not covered" >export default authMiddleware;</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -211,7 +211,7 @@ export default authMiddleware;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-07-24T18:47:16.071Z
+                at 2024-07-25T04:09:10.555Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

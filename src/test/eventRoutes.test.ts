@@ -17,32 +17,31 @@ jest.mock('../controllers/EventController', () => ({
   },
 }));
 
+jest.mock('../middleware/auth', () => ({
+  __esModule: true,
+  default: {
+    authenticateJWT: (req: any, res: any, next: any) => {
+      console.log('Mocked authenticateJWT middleware');
+      req.user = { id: 1, role: 'user' };
+      next();
+    },
+    authorizeRoles: (...roles: string[]) => (req: any, res: any, next: any) => {
+      console.log('Mocked authorizeRoles middleware');
+      if (roles.includes(req.user.role)) {
+        next();
+      } else {
+        res.status(403).json({ error: 'Forbidden' });
+      }
+    },
+  },
+}));
+
 const { createEvent, getEvents, updateEvent, deleteEvent } = EventController;
 
 describe('Event Routes with Mocked Middleware', () => {
-
   beforeEach(() => {
     jest.resetModules();
     jest.clearAllMocks();
-
-    jest.mock('../middleware/auth', () => ({
-      __esModule: true,
-      default: {
-        authenticateJWT: (req: any, res: any, next: any) => {
-          console.log('Mocked authenticateJWT middleware');
-          req.user = { id: 1, role: 'user' };
-          next();
-        },
-        authorizeRoles: (...roles: string[]) => (req: any, res: any, next: any) => {
-          console.log('Mocked authorizeRoles middleware');
-          if (roles.includes(req.user.role)) {
-            next();
-          } else {
-            res.status(403).json({ error: 'Forbidden' });
-          }
-        },
-      },
-    }));
   });
 
   it('should create an event', async () => {
@@ -100,29 +99,8 @@ describe('Event Routes with Mocked Middleware', () => {
     expect(response.body).toHaveProperty('description', 'Updated Description');
   });
 
-
-
   it('should delete an event by admin', async () => {
     console.log('Test: Delete Event by Admin');
-    jest.mock('../middleware/auth', () => ({
-      __esModule: true,
-      default: {
-        authenticateJWT: (req: any, res: any, next: any) => {
-          console.log('Mocked authenticateJWT middleware');
-          req.user = { id: 1, role: 'admin' };
-          next();
-        },
-        authorizeRoles: (...roles: string[]) => (req: any, res: any, next: any) => {
-          console.log('Mocked authorizeRoles middleware');
-          if (roles.includes(req.user.role)) {
-            next();
-          } else {
-            res.status(403).json({ error: 'Forbidden' });
-          }
-        },
-      },
-    }));
-
     (deleteEvent as jest.Mock).mockImplementation((req, res) => {
       console.log('Mocked deleteEvent controller');
       res.status(200).json({ message: 'Event deleted' });
@@ -133,6 +111,4 @@ describe('Event Routes with Mocked Middleware', () => {
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('message', 'Event deleted');
   });
-
-  
 });

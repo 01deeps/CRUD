@@ -1,9 +1,20 @@
 // src/models/User.ts
-import { Model, DataTypes } from 'sequelize';
+import { Model, DataTypes, Optional } from 'sequelize';
 import { database } from '../config/database';
 import bcrypt from 'bcryptjs';
 
-class User extends Model {
+export interface UserAttributes {
+  id: number;
+  username: string;
+  password: string;
+  role: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+interface UserCreationAttributes extends Optional<UserAttributes, 'id' | 'createdAt' | 'updatedAt'> {}
+
+class User extends Model<UserAttributes, UserCreationAttributes> implements UserAttributes {
   public id!: number;
   public username!: string;
   public password!: string;
