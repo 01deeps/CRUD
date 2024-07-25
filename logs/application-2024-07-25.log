@@ -13,3 +13,67 @@
 2024-07-25T04:03:22.993Z warn: No Token Provided 
 2024-07-25T04:03:23.020Z warn: No Token Provided 
 2024-07-25T04:03:23.046Z warn: No Token Provided 
+2024-07-25T04:50:51.911Z info: Event deleted successfully {
+  "id": "3"
+}
+2024-07-25T04:51:22.336Z warn: Event not found or unauthorized access {
+  "id": "3"
+}
+2024-07-25T04:51:32.301Z info: Fetched all events {
+  "events": [
+    {
+      "id": 2,
+      "event_name": "Eventsss",
+      "date": "2023-07-25T00:00:00.000Z",
+      "description": "Event Description",
+      "userId": 4,
+      "createdAt": "2024-07-24T12:20:21.269Z",
+      "updatedAt": "2024-07-24T12:20:21.269Z"
+    },
+    {
+      "id": 11,
+      "event_name": "Opcode Technologiess",
+      "date": "2023-07-25T00:00:00.000Z",
+      "description": "Opcode Technologies",
+      "userId": 11,
+      "createdAt": "2024-07-25T04:40:25.496Z",
+      "updatedAt": "2024-07-25T04:40:25.496Z"
+    }
+  ]
+}
+2024-07-25T04:51:40.945Z info: Event deleted successfully {
+  "id": "2"
+}
+2024-07-25T04:52:11.827Z info: User logged in: deepss 
+2024-07-25T04:52:26.443Z info: User registered: deepan 
+2024-07-25T04:52:34.445Z error: Error registering user: Validation error 
+2024-07-25T04:52:49.423Z info: User logged in: deepan 
+2024-07-25T04:53:09.351Z warn: Event not found or unauthorized access {
+  "id": "2"
+}
+2024-07-25T04:53:22.120Z info: Fetched all events {
+  "events": [
+    {
+      "id": 11,
+      "event_name": "Opcode Technologiess",
+      "date": "2023-07-25T00:00:00.000Z",
+      "description": "Opcode Technologies",
+      "userId": 11,
+      "createdAt": "2024-07-25T04:40:25.496Z",
+      "updatedAt": "2024-07-25T04:40:25.496Z"
+    }
+  ]
+}
+2024-07-25T04:53:31.260Z info: Event deleted successfully {
+  "id": "11"
+}
+2024-07-25T04:55:13.709Z error: Error creating event {
+  "error": {}
+}
+2024-07-25T05:00:23.632Z info: User registered: Deepan 
+2024-07-25T05:00:32.199Z error: Error registering user: Validation error 
+2024-07-25T05:00:38.020Z error: Error registering user: Validation error 
+2024-07-25T05:00:47.947Z warn: Invalid login attempt: Deepan 
+2024-07-25T05:00:53.548Z info: User logged in: Deepan 
+2024-07-25T05:05:59.683Z info: User registered: Deepan Kumar 
+2024-07-25T05:06:12.082Z info: User logged in: Deepan Kumar 
