@@ -1,11 +1,18 @@
-import { Router } from 'express';
+import { Router, Request, Response, NextFunction } from 'express';
 import UserController from '../controllers/UserController';
-import authMiddleware from '../middleware/auth';
 
-const router = Router();
+class UserRouter {
+  public router: Router;
 
-// Apply the middleware to the routes
-router.post('/register', UserController.register);
-router.post('/login', UserController.login);
+  constructor() {
+    this.router = Router();
+    this.initializeRoutes();
+  }
 
-export default router;
+  private initializeRoutes() {
+    this.router.post('/register', UserController.register);
+    this.router.post('/login', UserController.login);
+  }
+}
+
+export default new UserRouter().router;
