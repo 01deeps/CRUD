@@ -84,9 +84,9 @@ class EventService {
                     res.status(200).json(event);
                 }
                 else {
-                    console.log('Event not found or unauthorized access');
-                    logger_1.default.warn('Event not found or unauthorized access', { id });
-                    res.status(404).json({ error: 'Event not found or unauthorized access' });
+                    console.log('Event not found or unauthorized accesssssss');
+                    logger_1.default.warn('Unauthorized access', { id });
+                    res.status(404).json({ error: 'Unauthorized access' });
                 }
             }
             catch (error) {

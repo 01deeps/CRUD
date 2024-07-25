@@ -54,7 +54,7 @@ class EventController {
                     event.description = description;
                     yield event.save();
                     console.log('Event updated:', event);
-                    res.status(200).json(event); // Send the updated event details in the response
+                    res.status(200).json({ message: 'Updated event', id }); // Send the updated event details in the response
                 }
                 else {
                     console.log('Event not found or unauthorized access');
@@ -79,7 +79,7 @@ class EventController {
                 }
                 else {
                     console.log('Event not found or unauthorized access');
-                    res.status(404).json({ error: 'Event not found or unauthorized access' });
+                    res.status(404).json({ error: 'Unauthorized access' });
                 }
             }
             catch (error) {
