@@ -28,30 +28,30 @@ jest.mock('../controllers/EventController', () => ({
         deleteEvent: jest.fn(),
     },
 }));
+jest.mock('../middleware/auth', () => ({
+    __esModule: true,
+    default: {
+        authenticateJWT: (req, res, next) => {
+            console.log('Mocked authenticateJWT middleware');
+            req.user = { id: 1, role: 'user' };
+            next();
+        },
+        authorizeRoles: (...roles) => (req, res, next) => {
+            console.log('Mocked authorizeRoles middleware');
+            if (roles.includes(req.user.role)) {
+                next();
+            }
+            else {
+                res.status(403).json({ error: 'Forbidden' });
+            }
+        },
+    },
+}));
 const { createEvent, getEvents, updateEvent, deleteEvent } = EventController_1.default;
 describe('Event Routes with Mocked Middleware', () => {
     beforeEach(() => {
         jest.resetModules();
         jest.clearAllMocks();
-        jest.mock('../middleware/auth', () => ({
-            __esModule: true,
-            default: {
-                authenticateJWT: (req, res, next) => {
-                    console.log('Mocked authenticateJWT middleware');
-                    req.user = { id: 1, role: 'user' };
-                    next();
-                },
-                authorizeRoles: (...roles) => (req, res, next) => {
-                    console.log('Mocked authorizeRoles middleware');
-                    if (roles.includes(req.user.role)) {
-                        next();
-                    }
-                    else {
-                        res.status(403).json({ error: 'Forbidden' });
-                    }
-                },
-            },
-        }));
     });
     it('should create an event', () => __awaiter(void 0, void 0, void 0, function* () {
         console.log('Test: Create Event');
@@ -101,25 +101,6 @@ describe('Event Routes with Mocked Middleware', () => {
     }));
     it('should delete an event by admin', () => __awaiter(void 0, void 0, void 0, function* () {
         console.log('Test: Delete Event by Admin');
-        jest.mock('../middleware/auth', () => ({
-            __esModule: true,
-            default: {
-                authenticateJWT: (req, res, next) => {
-                    console.log('Mocked authenticateJWT middleware');
-                    req.user = { id: 1, role: 'admin' };
-                    next();
-                },
-                authorizeRoles: (...roles) => (req, res, next) => {
-                    console.log('Mocked authorizeRoles middleware');
-                    if (roles.includes(req.user.role)) {
-                        next();
-                    }
-                    else {
-                        res.status(403).json({ error: 'Forbidden' });
-                    }
-                },
-            },
-        }));
         deleteEvent.mockImplementation((req, res) => {
             console.log('Mocked deleteEvent controller');
             res.status(200).json({ message: 'Event deleted' });
