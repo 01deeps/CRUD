@@ -12,97 +12,116 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const Event_1 = __importDefault(require("../models/Event"));
 class EventService {
     constructor() {
-        this.createEvent = (req, res) => __awaiter(this, void 0, void 0, function* () {
+        this.createEvent = (eventData, userId) => __awaiter(this, void 0, void 0, function* () {
             console.log('createEvent called');
-            console.log('Request Body:', req.body);
+            console.log('Request Body:', eventData);
             try {
-                const { event_name, date, description } = req.body;
-                const event = yield Event_1.default.create({ event_name, date, description, userId: req.user.id }); // Assume req.user.id is set by auth middleware
+                if (!eventData) {
+                    throw new Error('Request body is missing');
+                }
+                const { event_name, date, description } = eventData;
+                if (!event_name || !date || !description) {
+                    throw new Error('Missing required fields');
+                }
+                const event = yield Event_1.default.create({ event_name, date, description, userId });
                 console.log('Event created:', event);
-                res.status(201).json(event); // Send the event details in the response
+                // Return only relevant data
+                return {
+                    id: event.id,
+                    event_name: event.event_name,
+                    date: event.date,
+                    description: event.description,
+                    userId: event.userId,
+                };
             }
             catch (error) {
                 console.log('Error creating event:', error);
-                res.status(500).json({ error: 'Internal Server Error' });
+                throw new Error('Internal Server Error');
             }
         });
-        this.getEvents = (req, res) => __awaiter(this, void 0, void 0, function* () {
+        this.getEvents = (userRole) => __awaiter(this, void 0, void 0, function* () {
             console.log('getEvents called');
             try {
-                // Assuming req.user is set by authentication middleware and contains user details
-                if (req.user.role !== 'admin') {
-                    console.log('Access denied: non-admin user attempted to fetch events');
-                    res.status(403).json({ error: 'Access denied' });
+                if (userRole !== 'admin') {
+                    throw new Error('Access denied');
                 }
                 const events = yield Event_1.default.findAll();
                 console.log('Events fetched:', events);
-                res.status(200).json(events); // Send the list of events in the response
+                // Return only relevant data
+                return events.map(event => ({
+                    id: event.id,
+                    event_name: event.event_name,
+                    date: event.date,
+                    description: event.description,
+                    userId: event.userId,
+                }));
             }
             catch (error) {
                 console.log('Error fetching events:', error);
-                res.status(500).json({ error: 'Internal Server Error' });
+                throw new Error('Internal Server Error');
             }
         });
-        this.updateEvent = (req, res) => __awaiter(this, void 0, void 0, function* () {
+        this.updateEvent = (id, eventData, userId, userRole) => __awaiter(this, void 0, void 0, function* () {
             console.log('updateEvent called');
-            console.log('Request Body:', req.body);
+            console.log('Request Params:', { id });
+            console.log('Request Body:', eventData);
             try {
-                const { id } = req.params;
-                const { event_name, date, description } = req.body;
+                const { event_name, date, description } = eventData;
+                if (!event_name || !date || !description) {
+                    throw new Error('Missing required fields');
+                }
                 const event = yield Event_1.default.findByPk(id);
-                if (event && (event.userId === req.user.id || req.user.role === 'admin')) {
+                if (event && (event.userId === userId || userRole === 'admin')) {
                     event.event_name = event_name;
                     event.date = date;
                     event.description = description;
                     yield event.save();
                     console.log('Event updated:', event);
-                    res.status(200).json({ message: 'Updated event', id }); // Send the updated event details in the response
+                    // Return only relevant data
+                    return {
+                        message: 'Event updated',
+                        id: event.id,
+                        event_name: event.event_name,
+                        date: event.date,
+                        description: event.description,
+                        userId: event.userId,
+                    };
                 }
                 else {
-                    console.log('Event not found or unauthorized access');
-                    res.status(404).json({ error: 'Unauthorized access' });
+                    throw new Error('Event not found or unauthorized access');
                 }
             }
             catch (error) {
                 console.log('Error updating event:', error);
-                res.status(500).json({ error: 'Internal Server Error' });
+                throw new Error('Internal Server Error');
             }
         });
-        this.deleteEvent = (req, res) => __awaiter(this, void 0, void 0, function* () {
+        this.deleteEvent = (id, userId, userRole) => __awaiter(this, void 0, void 0, function* () {
             console.log('deleteEvent called');
-            console.log('Request Params:', req.params);
+            console.log('Request Params:', { id });
             try {
-                const { id } = req.params;
                 const event = yield Event_1.default.findByPk(id);
-                if (event && (event.userId === req.user.id || req.user.role === 'admin')) {
+                if (event && (event.userId === userId || userRole === 'admin')) {
                     yield event.destroy();
                     console.log('Event deleted:', id);
-                    res.status(200).json({ message: 'Event deleted', id }); // Send event ID in response for confirmation
+                    // Return only relevant data
+                    return {
+                        message: 'Event deleted',
+                        id,
+                    };
                 }
                 else {
-                    console.log('Event not found or unauthorized access');
-                    res.status(404).json({ error: 'Unauthorized access' });
+                    throw new Error('Event not found or unauthorized access');
                 }
             }
             catch (error) {
                 console.log('Error deleting event:', error);
-                res.status(500).json({ error: 'Internal Server Error' });
+                throw new Error('Internal Server Error');
             }
         });
-    }
-    verifyToken(req) {
-        var _a;
-        const token = (_a = req.headers.authorization) === null || _a === void 0 ? void 0 : _a.split(' ')[1];
-        if (!token) {
-            console.log('No token provided');
-            throw new Error('No token provided');
-        }
-        console.log('Token provided:', token);
-        return jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET);
     }
 }
 exports.default = new EventService();

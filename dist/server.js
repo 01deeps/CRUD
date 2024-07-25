@@ -13,29 +13,32 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const body_parser_1 = __importDefault(require("body-parser"));
+const routing_controllers_1 = require("routing-controllers");
 const database_1 = require("./config/database");
-const eventRoutes_1 = __importDefault(require("./routes/eventRoutes"));
-const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
+const EventController_1 = require("./controllers/EventController");
+const UserController_1 = require("./controllers/UserController");
+const auth_1 = __importDefault(require("./middleware/auth"));
+require("reflect-metadata");
 class Server {
     constructor(port) {
-        this.app = (0, express_1.default)();
         this.port = port;
+        this.app = (0, routing_controllers_1.createExpressServer)({
+            controllers: [EventController_1.EventController, UserController_1.UserController],
+            middlewares: [auth_1.default.authenticateJWT, auth_1.default.authorizeRoles('user', 'admin')],
+            defaultErrorHandler: false,
+        });
         this.configureMiddleware();
-        this.configureRoutes();
         this.configureErrorHandling();
     }
     configureMiddleware() {
-        this.app.use(body_parser_1.default.json());
-    }
-    configureRoutes() {
-        this.app.use('/api/work', eventRoutes_1.default);
-        this.app.use('/api', userRoutes_1.default);
+        this.app.use(express_1.default.json()); // Ensure this is before any routes
     }
     configureErrorHandling() {
         this.app.use((err, req, res, next) => {
             console.error('Internal Server Error:', err.stack);
-            res.status(500).send('Internal Server Error');
+            if (!res.headersSent) {
+                res.status(500).send('Internal Server Error');
+            }
         });
     }
     start() {

@@ -1,100 +1,130 @@
-import { Request, Response } from 'express';
-import jwt from 'jsonwebtoken';
 import Event from '../models/Event';
-import logger from '../config/logger';
 
 class EventService {
-  private verifyToken(req: Request): any {
-    const token = req.headers.authorization?.split(' ')[1];
-    if (!token) {
-      console.log('No token provided');
-      throw new Error('No token provided');
-    }
-    console.log('Token provided:', token);
-    return jwt.verify(token, process.env.JWT_SECRET as string);
-  }
-
-  public createEvent = async (req: Request, res: Response): Promise<void> => {
+  public createEvent = async (eventData: any, userId: number): Promise<any> => {
     console.log('createEvent called');
-    console.log('Request Body:', req.body);
-
+    console.log('Request Body:', eventData);
+  
     try {
-      const { event_name, date, description } = req.body;
-      const event = await Event.create({ event_name, date, description, userId: req.user.id }); // Assume req.user.id is set by auth middleware
+      if (!eventData) {
+        throw new Error('Request body is missing');
+      }
+  
+      const { event_name, date, description } = eventData;
+  
+      if (!event_name || !date || !description) {
+        throw new Error('Missing required fields');
+      }
+  
+      const event = await Event.create({ event_name, date, description, userId });
       console.log('Event created:', event);
-      res.status(201).json(event); // Send the event details in the response
+  
+      // Return only relevant data
+      return {
+        id: event.id,
+        event_name: event.event_name,
+        date: event.date,
+        description: event.description,
+        userId: event.userId,
+      };
     } catch (error) {
       console.log('Error creating event:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
+      throw new Error('Internal Server Error');
     }
   };
+  
 
-  public getEvents = async (req: Request, res: Response): Promise<void> => {
+  public getEvents = async (userRole: string): Promise<any[]> => {
     console.log('getEvents called');
-
+  
     try {
-        // Assuming req.user is set by authentication middleware and contains user details
-        if (req.user.role !== 'admin') {
-            console.log('Access denied: non-admin user attempted to fetch events');
-            res.status(403).json({ error: 'Access denied' });
-        }
-
-        const events = await Event.findAll();
-        console.log('Events fetched:', events);
-        res.status(200).json(events); // Send the list of events in the response
+      if (userRole !== 'admin') {
+        throw new Error('Access denied');
+      }
+  
+      const events = await Event.findAll();
+      console.log('Events fetched:', events);
+  
+      // Return only relevant data
+      return events.map(event => ({
+        id: event.id,
+        event_name: event.event_name,
+        date: event.date,
+        description: event.description,
+        userId: event.userId,
+      }));
     } catch (error) {
-        console.log('Error fetching events:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+      console.log('Error fetching events:', error);
+      throw new Error('Internal Server Error');
     }
-};
+  };
+  
 
-  public updateEvent = async (req: Request, res: Response): Promise<void> => {
+  public updateEvent = async (id: string, eventData: any, userId: number, userRole: string): Promise<any> => {
     console.log('updateEvent called');
-    console.log('Request Body:', req.body);
-
+    console.log('Request Params:', { id });
+    console.log('Request Body:', eventData);
+  
     try {
-      const { id } = req.params;
-      const { event_name, date, description } = req.body;
+      const { event_name, date, description } = eventData;
+  
+      if (!event_name || !date || !description) {
+        throw new Error('Missing required fields');
+      }
+  
       const event = await Event.findByPk(id);
-
-      if (event && (event.userId === req.user.id || req.user.role === 'admin')) {
+  
+      if (event && (event.userId === userId || userRole === 'admin')) {
         event.event_name = event_name;
         event.date = date;
         event.description = description;
         await event.save();
         console.log('Event updated:', event);
-        res.status(200).json({message : 'Updated event',id}); // Send the updated event details in the response
+  
+        // Return only relevant data
+        return {
+          message:'Event updated',
+          id: event.id,
+          event_name: event.event_name,
+          date: event.date,
+          description: event.description,
+          userId: event.userId,
+        };
       } else {
-        console.log('Event not found or unauthorized access');
-        res.status(404).json({ error: 'Unauthorized access' });
+        throw new Error('Event not found or unauthorized access');
       }
     } catch (error) {
       console.log('Error updating event:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
+      throw new Error('Internal Server Error');
     }
   };
+  
 
-  public deleteEvent = async (req: Request, res: Response): Promise<void> => {
+  public deleteEvent = async (id: string, userId: number, userRole: string): Promise<any> => {
     console.log('deleteEvent called');
-    console.log('Request Params:', req.params);
-
+    console.log('Request Params:', { id });
+  
     try {
-      const { id } = req.params;
       const event = await Event.findByPk(id);
-
-      if (event && (event.userId === req.user.id || req.user.role === 'admin')) {
+  
+      if (event && (event.userId === userId || userRole === 'admin')) {
         await event.destroy();
         console.log('Event deleted:', id);
-        res.status(200).json({ message: 'Event deleted', id }); // Send event ID in response for confirmation
+  
+        // Return only relevant data
+        return { 
+          message: 'Event deleted',
+          id, 
+        };
       } else {
-        console.log('Event not found or unauthorized access');
-        res.status(404).json({ error: 'Unauthorized access' });
+        throw new Error('Event not found or unauthorized access');
       }
     } catch (error) {
       console.log('Error deleting event:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
+      throw new Error('Internal Server Error');
     }
   };
+  
 }
 
 export default new EventService();

@@ -1,27 +1,33 @@
-// src/__tests__/userRoutes.test.ts
 import request from 'supertest';
 import express from 'express';
-import userRoutes from '../routes/userRoutes';
-import UserService from '../services/UserService';
+import { createExpressServer } from 'routing-controllers';
+import { UserController } from '../controllers/UserController';
 
-// Create an instance of express and apply the routes
-const app = express();
+// Create an instance of express with routing-controllers
+const app = createExpressServer({
+  controllers: [UserController],
+  defaultErrorHandler: false,
+});
 
-app.use(express.json()); // Middleware to parse JSON bodies
-app.use('/api', userRoutes); // Apply user routes to the /api path
+// Mock UserService methods
+jest.mock('../services/UserService', () => ({
+  __esModule: true,
+  default: {
+    register: jest.fn(),
+    login: jest.fn(),
+  },
+}));
 
-// Mock the service methods
-jest.mock('../services/UserService');
+const { register, login } = require('../services/UserService').default;
 
 describe('User Routes', () => {
   it('should register a user', async () => {
-    const mockRegister = UserService.register as jest.Mock;
-    mockRegister.mockImplementation((req, res) => {
+    (register as jest.Mock).mockImplementation((req: any, res: any) => {
       res.status(201).json({ id: 1, ...req.body });
     });
 
     const response = await request(app)
-      .post('/api/register')
+      .post('/register')
       .send({
         username: 'testuser',
         password: 'password',
@@ -34,13 +40,12 @@ describe('User Routes', () => {
   });
 
   it('should login a user', async () => {
-    const mockLogin = UserService.login as jest.Mock;
-    mockLogin.mockImplementation((req, res) => {
+    (login as jest.Mock).mockImplementation((req: any, res: any) => {
       res.status(200).json({ token: 'mock-token' });
     });
 
     const response = await request(app)
-      .post('/api/login')
+      .post('/login')
       .send({
         username: 'testuser',
         password: 'password',

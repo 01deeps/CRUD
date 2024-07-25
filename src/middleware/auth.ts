@@ -6,13 +6,13 @@ class AuthMiddleware {
   public async authenticateJWT(req: Request, res: Response, next: NextFunction): Promise<void> {
     console.log('authenticateJWT: Start');
     const token = req.headers.authorization?.split(' ')[1];
-
+  
     if (token) {
       try {
         console.log('authenticateJWT: Token found');
         const decoded: any = jwt.verify(token, process.env.JWT_SECRET as string);
         console.log('authenticateJWT: Token verified', decoded);
-        req.user = decoded;
+        req.user = decoded; // Ensure `req.user` is set correctly
         next();
       } catch (error) {
         console.log('authenticateJWT: Invalid Token', error);
@@ -25,7 +25,7 @@ class AuthMiddleware {
       res.status(401).json({ error: 'Unauthorized' });
     }
   }
-
+  
   public authorizeRoles(...roles: string[]) {
     return (req: Request, res: Response, next: NextFunction): void => {
       console.log('authorizeRoles: Start');
@@ -34,7 +34,7 @@ class AuthMiddleware {
       if (!roles.includes(req.user.role)) {
         console.log(`authorizeRoles: User role ${req.user.role} not authorized`);
         logger.warn(`User role ${req.user.role} not authorized`);
-        res.status(403).json({ error: 'Forbidden' });
+        res.status(403).json({ error: 'Unauthorized access' });
       } else {
         console.log(`authorizeRoles: User role ${req.user.role} authorized`);
         next();

@@ -12,25 +12,30 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// src/__tests__/userRoutes.test.ts
 const supertest_1 = __importDefault(require("supertest"));
-const express_1 = __importDefault(require("express"));
-const userRoutes_1 = __importDefault(require("../routes/userRoutes"));
-const UserService_1 = __importDefault(require("../services/UserService"));
-// Create an instance of express and apply the routes
-const app = (0, express_1.default)();
-app.use(express_1.default.json()); // Middleware to parse JSON bodies
-app.use('/api', userRoutes_1.default); // Apply user routes to the /api path
-// Mock the service methods
-jest.mock('../services/UserService');
+const routing_controllers_1 = require("routing-controllers");
+const UserController_1 = require("../controllers/UserController");
+// Create an instance of express with routing-controllers
+const app = (0, routing_controllers_1.createExpressServer)({
+    controllers: [UserController_1.UserController],
+    defaultErrorHandler: false,
+});
+// Mock UserService methods
+jest.mock('../services/UserService', () => ({
+    __esModule: true,
+    default: {
+        register: jest.fn(),
+        login: jest.fn(),
+    },
+}));
+const { register, login } = require('../services/UserService').default;
 describe('User Routes', () => {
     it('should register a user', () => __awaiter(void 0, void 0, void 0, function* () {
-        const mockRegister = UserService_1.default.register;
-        mockRegister.mockImplementation((req, res) => {
+        register.mockImplementation((req, res) => {
             res.status(201).json(Object.assign({ id: 1 }, req.body));
         });
         const response = yield (0, supertest_1.default)(app)
-            .post('/api/register')
+            .post('/register')
             .send({
             username: 'testuser',
             password: 'password',
@@ -41,12 +46,11 @@ describe('User Routes', () => {
         expect(response.body).toHaveProperty('username', 'testuser');
     }));
     it('should login a user', () => __awaiter(void 0, void 0, void 0, function* () {
-        const mockLogin = UserService_1.default.login;
-        mockLogin.mockImplementation((req, res) => {
+        login.mockImplementation((req, res) => {
             res.status(200).json({ token: 'mock-token' });
         });
         const response = yield (0, supertest_1.default)(app)
-            .post('/api/login')
+            .post('/login')
             .send({
             username: 'testuser',
             password: 'password',

@@ -1,12 +1,16 @@
 import request from 'supertest';
-import express from 'express';
-import eventRoutes from '../routes/eventRoutes';
-import EventController from '../controllers/EventController';
+import { createExpressServer } from 'routing-controllers';
+import { EventController } from '../controllers/EventController';
+import authMiddleware from '../middleware/auth';
 
-const app = express();
-app.use(express.json());
-app.use('/api', eventRoutes);
+// Create a custom express server instance
+const app = createExpressServer({
+  controllers: [EventController],
+  middlewares: [authMiddleware.authenticateJWT, authMiddleware.authorizeRoles('user', 'admin')],
+  defaultErrorHandler: false,
+});
 
+// Mock EventController methods
 jest.mock('../controllers/EventController', () => ({
   __esModule: true,
   default: {
@@ -17,26 +21,7 @@ jest.mock('../controllers/EventController', () => ({
   },
 }));
 
-jest.mock('../middleware/auth', () => ({
-  __esModule: true,
-  default: {
-    authenticateJWT: (req: any, res: any, next: any) => {
-      console.log('Mocked authenticateJWT middleware');
-      req.user = { id: 1, role: 'user' };
-      next();
-    },
-    authorizeRoles: (...roles: string[]) => (req: any, res: any, next: any) => {
-      console.log('Mocked authorizeRoles middleware');
-      if (roles.includes(req.user.role)) {
-        next();
-      } else {
-        res.status(403).json({ error: 'Forbidden' });
-      }
-    },
-  },
-}));
-
-const { createEvent, getEvents, updateEvent, deleteEvent } = EventController;
+const { createEvent, getEvents, updateEvent, deleteEvent } = require('../controllers/EventController').default;
 
 describe('Event Routes with Mocked Middleware', () => {
   beforeEach(() => {
@@ -45,14 +30,12 @@ describe('Event Routes with Mocked Middleware', () => {
   });
 
   it('should create an event', async () => {
-    console.log('Test: Create Event');
-    (createEvent as jest.Mock).mockImplementation((req, res) => {
-      console.log('Mocked createEvent controller');
+    (createEvent as jest.Mock).mockImplementation((req: any, res: any) => {
       res.status(201).json({ id: 1, ...req.body });
     });
 
     const response = await request(app)
-      .post('/api/events')
+      .post('/events')
       .send({
         event_name: 'New Event',
         date: new Date(),
@@ -66,27 +49,23 @@ describe('Event Routes with Mocked Middleware', () => {
   });
 
   it('should get all events', async () => {
-    console.log('Test: Get All Events');
-    (getEvents as jest.Mock).mockImplementation((req, res) => {
-      console.log('Mocked getEvents controller');
+    (getEvents as jest.Mock).mockImplementation((req: any, res: any) => {
       res.status(200).json([{ id: 1, event_name: 'Event 1', description: 'Description 1' }]);
     });
 
-    const response = await request(app).get('/api/events');
+    const response = await request(app).get('/events');
 
     expect(response.status).toBe(200);
     expect(response.body.length).toBeGreaterThan(0);
   });
 
-  it('should update an event by user who created it', async () => {
-    console.log('Test: Update Event');
-    (updateEvent as jest.Mock).mockImplementation((req, res) => {
-      console.log('Mocked updateEvent controller');
+  it('should update an event', async () => {
+    (updateEvent as jest.Mock).mockImplementation((req: any, res: any) => {
       res.status(200).json({ id: req.params.id, ...req.body });
     });
 
     const response = await request(app)
-      .put('/api/events/1')
+      .put('/events/1')
       .send({
         event_name: 'Updated Event',
         date: new Date(),
@@ -99,14 +78,12 @@ describe('Event Routes with Mocked Middleware', () => {
     expect(response.body).toHaveProperty('description', 'Updated Description');
   });
 
-  it('should delete an event by admin', async () => {
-    console.log('Test: Delete Event by Admin');
-    (deleteEvent as jest.Mock).mockImplementation((req, res) => {
-      console.log('Mocked deleteEvent controller');
+  it('should delete an event', async () => {
+    (deleteEvent as jest.Mock).mockImplementation((req: any, res: any) => {
       res.status(200).json({ message: 'Event deleted' });
     });
 
-    const response = await request(app).delete('/api/events/1');
+    const response = await request(app).delete('/events/1');
 
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('message', 'Event deleted');

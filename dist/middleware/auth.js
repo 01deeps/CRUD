@@ -25,7 +25,7 @@ class AuthMiddleware {
                     console.log('authenticateJWT: Token found');
                     const decoded = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET);
                     console.log('authenticateJWT: Token verified', decoded);
-                    req.user = decoded;
+                    req.user = decoded; // Ensure `req.user` is set correctly
                     next();
                 }
                 catch (error) {
@@ -49,7 +49,7 @@ class AuthMiddleware {
             if (!roles.includes(req.user.role)) {
                 console.log(`authorizeRoles: User role ${req.user.role} not authorized`);
                 logger_1.default.warn(`User role ${req.user.role} not authorized`);
-                res.status(403).json({ error: 'Forbidden' });
+                res.status(403).json({ error: 'Unauthorized access' });
             }
             else {
                 console.log(`authorizeRoles: User role ${req.user.role} authorized`);
