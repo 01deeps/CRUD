@@ -12,22 +12,10 @@ class EventRouter {
         this.initializeRoutes();
     }
     initializeRoutes() {
-        this.router.post('/events', auth_1.default.authenticateJWT, auth_1.default.authorizeRoles('user', 'admin'), (req, res, next) => {
-            console.log('POST /events route hit');
-            next();
-        }, EventController_1.default.createEvent);
-        this.router.get('/events', auth_1.default.authenticateJWT, auth_1.default.authorizeRoles('user', 'admin'), (req, res, next) => {
-            console.log('GET /events route hit');
-            next();
-        }, EventController_1.default.getEvents);
-        this.router.put('/events/:id', auth_1.default.authenticateJWT, auth_1.default.authorizeRoles('user', 'admin'), (req, res, next) => {
-            console.log('PUT /events/:id route hit');
-            next();
-        }, EventController_1.default.updateEvent);
-        this.router.delete('/events/:id', auth_1.default.authenticateJWT, auth_1.default.authorizeRoles('user', 'admin'), (req, res, next) => {
-            console.log('DELETE /events/:id route hit');
-            next();
-        }, EventController_1.default.deleteEvent);
+        this.router.post('/events', auth_1.default.authenticateJWT, auth_1.default.authorizeRoles('user', 'admin'), EventController_1.default.createEvent);
+        this.router.get('/events', auth_1.default.authenticateJWT, auth_1.default.authorizeRoles('user', 'admin'), EventController_1.default.getEvents);
+        this.router.put('/events/:id', auth_1.default.authenticateJWT, auth_1.default.authorizeRoles('user', 'admin'), EventController_1.default.updateEvent);
+        this.router.delete('/events/:id', auth_1.default.authenticateJWT, auth_1.default.authorizeRoles('user', 'admin'), EventController_1.default.deleteEvent);
     }
 }
 exports.default = new EventRouter().router;
