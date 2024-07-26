@@ -25,38 +25,38 @@ class AuthMiddleware {
                     console.log('authenticateJWT: Token found');
                     const decoded = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET);
                     console.log('authenticateJWT: Token verified', decoded);
-                    req.user = decoded; // Ensure `req.user` is set correctly
+                    req.user = { role: decoded.role, id: decoded.id }; // Set req.user with the role and id
                     next();
                 }
                 catch (error) {
                     console.log('authenticateJWT: Invalid Token', error);
                     logger_1.default.warn('Invalid Token');
-                    res.status(403).json({ error: 'Forbidden' });
+                    res.status(403).json({ error: 'Forbidden' }).end(); // Use end() to indicate no further processing
+                    return; // Ensure the function exits
                 }
             }
             else {
                 console.log('authenticateJWT: No Token Provided');
                 logger_1.default.warn('No Token Provided');
-                res.status(401).json({ error: 'Unauthorized' });
+                res.status(401).json({ error: 'Unauthorized' }).end(); // Use end() to indicate no further processing
+                return; // Ensure the function exits
             }
         });
     }
     authorizeRoles(...roles) {
         return (req, res, next) => {
+            var _a, _b, _c;
             console.log('authorizeRoles: Start');
             console.log('authorizeRoles: Required roles', roles);
-            console.log('authorizeRoles: User role', req.user.role);
-            if (!roles.includes(req.user.role)) {
-                console.log(`authorizeRoles: User role ${req.user.role} not authorized`);
-                logger_1.default.warn(`User role ${req.user.role} not authorized`);
-                res.status(403).json({ error: 'Unauthorized access' });
+            console.log('authorizeRoles: User role', (_a = req.user) === null || _a === void 0 ? void 0 : _a.role);
+            if (!req.user || !roles.includes(req.user.role)) {
+                console.log(`authorizeRoles: User role ${(_b = req.user) === null || _b === void 0 ? void 0 : _b.role} not authorized`);
+                logger_1.default.warn(`User role ${(_c = req.user) === null || _c === void 0 ? void 0 : _c.role} not authorized`);
+                res.status(403).json({ error: 'Unauthorized access' }).end(); // Use end() to indicate no further processing
+                return; // Ensure the function exits
             }
-            else {
-                console.log(`authorizeRoles: User role ${req.user.role} authorized`);
-                next();
-            }
+            next();
         };
     }
 }
-const authMiddleware = new AuthMiddleware();
-exports.default = authMiddleware;
+exports.default = new AuthMiddleware();

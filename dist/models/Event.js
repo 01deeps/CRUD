@@ -29,6 +29,7 @@ Event.init({
 }, {
     sequelize: database_1.database.getInstance(),
     tableName: 'events',
+    timestamps: true, // Ensure Sequelize manages createdAt and updatedAt
 });
 console.log('Event model initialized');
 exports.default = Event;

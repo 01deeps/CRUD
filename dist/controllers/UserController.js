@@ -33,17 +33,13 @@ let UserController = class UserController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 logger_1.default.info('Registering user');
-                const user = yield UserService_1.default.register(req, res, body);
+                const user = yield UserService_1.default.register(body);
                 logger_1.default.info('User registered successfully', user);
-                if (!res.headersSent) {
-                    res.status(201).json(user);
-                }
+                res.status(201).json(user);
             }
             catch (error) {
                 logger_1.default.error('Error registering user', error);
-                if (!res.headersSent) {
-                    res.status(500).json({ message: 'Error registering user. Please try again later.' });
-                }
+                res.status(500).json({ message: 'Error registering user. Please try again later.' });
             }
         });
     }
@@ -51,14 +47,13 @@ let UserController = class UserController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 logger_1.default.info('User login attempt');
-                yield UserService_1.default.login(req, res, body);
+                const { token } = yield UserService_1.default.login(body);
                 logger_1.default.info('User logged in successfully');
+                res.status(200).json({ token });
             }
             catch (error) {
                 logger_1.default.warn('Invalid login attempt', error);
-                if (!res.headersSent) {
-                    res.status(401).json({ message: 'Invalid credentials. Please check your username and password.' });
-                }
+                res.status(401).json({ message: 'Invalid credentials. Please check your username and password.' });
             }
         });
     }

@@ -4,7 +4,7 @@ import { database } from '../config/database';
 interface EventAttributes {
   id: number;
   event_name: string;
-  date: Date;
+  date: string;
   description: string;
   userId: number;
 }
@@ -14,7 +14,7 @@ interface EventCreationAttributes extends Optional<EventAttributes, 'id'> {}
 class Event extends Model<EventAttributes, EventCreationAttributes> implements EventAttributes {
   public id!: number;
   public event_name!: string;
-  public date!: Date;
+  public date!: string;
   public description!: string;
   public userId!: number;
 
@@ -49,8 +49,10 @@ Event.init(
   {
     sequelize: database.getInstance(),
     tableName: 'events',
+    timestamps: true, // Ensure Sequelize manages createdAt and updatedAt
   }
 );
+
 console.log('Event model initialized');
 
 export default Event;

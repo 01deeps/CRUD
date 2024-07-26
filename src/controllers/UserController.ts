@@ -9,16 +9,12 @@ export class UserController {
   async register(@Req() req: Request, @Res() res: Response, @Body() body: any) {
     try {
       logger.info('Registering user');
-      const user = await UserService.register(req, res, body);
+      const user = await UserService.register(body);
       logger.info('User registered successfully', user);
-      if (!res.headersSent) {
-        res.status(201).json(user);
-      }
+      res.status(201).json(user);
     } catch (error) {
       logger.error('Error registering user', error);
-      if (!res.headersSent) {
-        res.status(500).json({ message: 'Error registering user. Please try again later.' });
-      }
+      res.status(500).json({ message: 'Error registering user. Please try again later.' });
     }
   }
 
@@ -26,13 +22,12 @@ export class UserController {
   async login(@Req() req: Request, @Res() res: Response, @Body() body: any) {
     try {
       logger.info('User login attempt');
-      await UserService.login(req, res, body);
+      const { token } = await UserService.login(body);
       logger.info('User logged in successfully');
+      res.status(200).json({ token });
     } catch (error) {
       logger.warn('Invalid login attempt', error);
-      if (!res.headersSent) {
-        res.status(401).json({ message: 'Invalid credentials. Please check your username and password.' });
-      }
+      res.status(401).json({ message: 'Invalid credentials. Please check your username and password.' });
     }
   }
 }

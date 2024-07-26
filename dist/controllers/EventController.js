@@ -29,40 +29,41 @@ const routing_controllers_1 = require("routing-controllers");
 const EventService_1 = __importDefault(require("../services/EventService"));
 const auth_1 = __importDefault(require("../middleware/auth"));
 let EventController = class EventController {
-    createEvent(req, eventData) {
+    createEvent(req, eventData, res) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log('createEvent called');
             console.log('Request Body:', eventData);
             console.log('User ID:', req.user.id);
             try {
-                const userId = req.user.id; // Ensure this is being set correctly
+                const userId = req.user.id;
                 const event = yield EventService_1.default.createEvent(eventData, userId);
                 console.log('Event created:', event);
-                return event;
+                return res.status(201).json(event);
             }
             catch (error) {
                 console.log('Error creating event:', error);
-                throw new Error('Failed to create event. Please check the request data and try again.');
+                return res.status(500).json({ message: 'Failed to create event. Please check the request data and try again.' });
             }
         });
     }
-    getEvents(req) {
+    getEvents(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log('getEvents called');
             console.log('User Role:', req.user.role);
             try {
-                const userRole = req.user.role; // Ensure this is being set correctly
+                const userRole = req.user.role;
                 const events = yield EventService_1.default.getEvents(userRole);
                 console.log('Events fetched:', events);
-                return events;
+                return res.status(200).json(events);
             }
             catch (error) {
                 console.log('Error fetching events:', error);
-                throw new Error('Failed to fetch events. Please try again later.');
+                const statusCode = error.message === 'Unauthorized access' ? 401 : 500;
+                return res.status(statusCode).json({ message: error.message });
             }
         });
     }
-    updateEvent(req, id, eventData) {
+    updateEvent(req, id, eventData, res) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log('updateEvent called');
             console.log('Event ID:', id);
@@ -70,34 +71,36 @@ let EventController = class EventController {
             console.log('User ID:', req.user.id);
             console.log('User Role:', req.user.role);
             try {
-                const userId = req.user.id; // Ensure this is being set correctly
-                const userRole = req.user.role; // Ensure this is being set correctly
+                const userId = req.user.id;
+                const userRole = req.user.role;
                 const result = yield EventService_1.default.updateEvent(id, eventData, userId, userRole);
                 console.log('Event updated:', result);
-                return result;
+                return res.status(200).json(result);
             }
             catch (error) {
                 console.log('Error updating event:', error);
-                throw new Error('Failed to update event. Please check the request data and try again.');
+                const statusCode = error.message === 'Unauthorized access' ? 401 : 500;
+                return res.status(statusCode).json({ message: error.message });
             }
         });
     }
-    deleteEvent(req, id) {
+    deleteEvent(req, id, res) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log('deleteEvent called');
             console.log('Event ID:', id);
             console.log('User ID:', req.user.id);
             console.log('User Role:', req.user.role);
             try {
-                const userId = req.user.id; // Ensure this is being set correctly
-                const userRole = req.user.role; // Ensure this is being set correctly
+                const userId = req.user.id;
+                const userRole = req.user.role;
                 const result = yield EventService_1.default.deleteEvent(id, userId, userRole);
                 console.log('Event deleted:', result);
-                return result;
+                return res.status(200).json(result);
             }
             catch (error) {
                 console.log('Error deleting event:', error);
-                throw new Error('Failed to delete event. Please try again later.');
+                const statusCode = error.message === 'Unauthorized access' ? 401 : 500;
+                return res.status(statusCode).json({ message: error.message });
             }
         });
     }
@@ -107,16 +110,18 @@ __decorate([
     (0, routing_controllers_1.UseBefore)(auth_1.default.authenticateJWT, auth_1.default.authorizeRoles('user', 'admin')),
     __param(0, (0, routing_controllers_1.Req)()),
     __param(1, (0, routing_controllers_1.Body)()),
+    __param(2, (0, routing_controllers_1.Res)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:paramtypes", [Object, Object, Object]),
     __metadata("design:returntype", Promise)
 ], EventController.prototype, "createEvent", null);
 __decorate([
     (0, routing_controllers_1.Get)('/events'),
     (0, routing_controllers_1.UseBefore)(auth_1.default.authenticateJWT, auth_1.default.authorizeRoles('admin')),
     __param(0, (0, routing_controllers_1.Req)()),
+    __param(1, (0, routing_controllers_1.Res)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
 ], EventController.prototype, "getEvents", null);
 __decorate([
@@ -125,8 +130,9 @@ __decorate([
     __param(0, (0, routing_controllers_1.Req)()),
     __param(1, (0, routing_controllers_1.Param)('id')),
     __param(2, (0, routing_controllers_1.Body)()),
+    __param(3, (0, routing_controllers_1.Res)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, String, Object]),
+    __metadata("design:paramtypes", [Object, String, Object, Object]),
     __metadata("design:returntype", Promise)
 ], EventController.prototype, "updateEvent", null);
 __decorate([
@@ -134,8 +140,9 @@ __decorate([
     (0, routing_controllers_1.UseBefore)(auth_1.default.authenticateJWT, auth_1.default.authorizeRoles('user', 'admin')),
     __param(0, (0, routing_controllers_1.Req)()),
     __param(1, (0, routing_controllers_1.Param)('id')),
+    __param(2, (0, routing_controllers_1.Res)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, String]),
+    __metadata("design:paramtypes", [Object, String, Object]),
     __metadata("design:returntype", Promise)
 ], EventController.prototype, "deleteEvent", null);
 EventController = __decorate([

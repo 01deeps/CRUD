@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/33</span>
+                <span class='fraction'>0/26</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/15</span>
+                <span class='fraction'>0/9</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/33</span>
+                <span class='fraction'>0/26</span>
             </div>
         
             
@@ -118,27 +118,10 @@
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
 <a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -161,15 +144,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,16 +163,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -209,10 +177,9 @@
 <span class="cstat-no" title="statement not covered" >import jwt from 'jsonwebtoken';</span>
 <span class="cstat-no" title="statement not covered" >import User from '../models/User';</span>
 <span class="cstat-no" title="statement not covered" >import logger from '../config/logger';</span>
-import { Request, Response } from 'express';
 &nbsp;
 class UserService {
-  public async <span class="fstat-no" title="function not covered" >register(</span>req: Request, res: Response, body: any): Promise&lt;any&gt; {
+  public async <span class="fstat-no" title="function not covered" >register(</span>body: any): Promise&lt;any&gt; {
 <span class="cstat-no" title="statement not covered" >    try {</span>
       const { username, password, role } = <span class="cstat-no" title="statement not covered" >body;</span>
 &nbsp;
@@ -232,20 +199,11 @@ class UserService {
 <span class="cstat-no" title="statement not covered" >      return user;</span>
     } catch (error: any) {
 <span class="cstat-no" title="statement not covered" >      logger.error(`Error registering user: ${error.message || error}`);</span>
-&nbsp;
-      // Handle unique constraint error
-<span class="cstat-no" title="statement not covered" >      if (error.name === 'SequelizeUniqueConstraintError') {</span>
-<span class="cstat-no" title="statement not covered" >        res.status(400).json({ message: 'Username already exists' });</span>
-      } else {
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (!res.headersSent) {</span>
-<span class="cstat-no" title="statement not covered" >          res.status(500).json({ error: 'Internal Server Error' });</span>
-        }
-      }
 <span class="cstat-no" title="statement not covered" >      throw error;</span>
     }
   }
 &nbsp;
-  public async <span class="fstat-no" title="function not covered" >login(</span>req: Request, res: Response, body: any): Promise&lt;void&gt; {
+  public async <span class="fstat-no" title="function not covered" >login(</span>body: any): Promise&lt;{ token: string }&gt; {
 <span class="cstat-no" title="statement not covered" >    try {</span>
       const { username, password } = <span class="cstat-no" title="statement not covered" >body;</span>
       const user = <span class="cstat-no" title="statement not covered" >await User.findOne({ where: { username } });</span>
@@ -256,21 +214,15 @@ class UserService {
           process.env.JWT_SECRET as string,
           { expiresIn: '1h' }
         );
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (!res.headersSent) {</span>
-<span class="cstat-no" title="statement not covered" >          res.status(200).json({ token });</span>
-        }
 <span class="cstat-no" title="statement not covered" >        logger.info(`User logged in: ${username}`);</span>
+<span class="cstat-no" title="statement not covered" >        return { token };</span>
       } else {
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (!res.headersSent) {</span>
-<span class="cstat-no" title="statement not covered" >          res.status(401).json({ error: 'Invalid credentials' });</span>
-        }
 <span class="cstat-no" title="statement not covered" >        logger.warn(`Invalid login attempt: ${username}`);</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error('Invalid credentials');</span>
       }
     } catch (error: any) {
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!res.headersSent) {</span>
-<span class="cstat-no" title="statement not covered" >        res.status(500).json({ error: 'Internal Server Error' });</span>
-      }
 <span class="cstat-no" title="statement not covered" >      logger.error(`Error logging in user: ${error.message || error}`);</span>
+<span class="cstat-no" title="statement not covered" >      throw error;</span>
     }
   }
 }
@@ -283,7 +235,7 @@ class UserService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-07-25T11:58:55.889Z
+                at 2024-07-26T12:34:21.840Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

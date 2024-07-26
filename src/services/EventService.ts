@@ -32,19 +32,18 @@ class EventService {
       throw new Error('Internal Server Error');
     }
   };
-  
 
   public getEvents = async (userRole: string): Promise<any[]> => {
     console.log('getEvents called');
-  
+
     try {
       if (userRole !== 'admin') {
-        throw new Error('Access denied');
+        throw new Error('Unauthorized access');
       }
-  
+
       const events = await Event.findAll();
       console.log('Events fetched:', events);
-  
+
       // Return only relevant data
       return events.map(event => ({
         id: event.id,
@@ -55,10 +54,13 @@ class EventService {
       }));
     } catch (error) {
       console.log('Error fetching events:', error);
-      throw new Error('Internal Server Error');
+      if ((error as Error).message === 'Unauthorized access') {
+        throw new Error((error as Error).message);
+      } else {
+        throw new Error('Internal Server Error');
+      }
     }
   };
-  
 
   public updateEvent = async (id: string, eventData: any, userId: number, userRole: string): Promise<any> => {
     console.log('updateEvent called');
@@ -68,9 +70,9 @@ class EventService {
     try {
       const { event_name, date, description } = eventData;
   
-      if (!event_name || !date || !description) {
-        throw new Error('Missing required fields');
-      }
+      // if (!event_name || !date || !description) {
+      //   throw new Error('Missing required fields');
+      // }
   
       const event = await Event.findByPk(id);
   
@@ -83,7 +85,7 @@ class EventService {
   
         // Return only relevant data
         return {
-          message:'Event updated',
+          message: 'Event updated',
           id: event.id,
           event_name: event.event_name,
           date: event.date,
@@ -91,14 +93,17 @@ class EventService {
           userId: event.userId,
         };
       } else {
-        throw new Error('Event not found or unauthorized access');
+        throw new Error('Unauthorized access');
       }
     } catch (error) {
       console.log('Error updating event:', error);
-      throw new Error('Internal Server Error');
+      if ((error as Error).message === 'Unauthorized access') {
+        throw new Error((error as Error).message);
+      } else {
+        throw new Error('Missing required fields');
+      }
     }
   };
-  
 
   public deleteEvent = async (id: string, userId: number, userRole: string): Promise<any> => {
     console.log('deleteEvent called');
@@ -112,19 +117,22 @@ class EventService {
         console.log('Event deleted:', id);
   
         // Return only relevant data
-        return { 
+        return {
           message: 'Event deleted',
-          id, 
+          id,
         };
       } else {
-        throw new Error('Event not found or unauthorized access');
+        throw new Error('Unauthorized access');
       }
     } catch (error) {
       console.log('Error deleting event:', error);
-      throw new Error('Internal Server Error');
+      if ((error as Error).message === 'Unauthorized access') {
+        throw new Error((error as Error).message);
+      } else {
+        throw new Error('Internal Server Error');
+      }
     }
   };
-  
 }
 
 export default new EventService();

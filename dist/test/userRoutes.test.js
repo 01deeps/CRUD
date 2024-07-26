@@ -15,7 +15,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
 const routing_controllers_1 = require("routing-controllers");
 const UserController_1 = require("../controllers/UserController");
-// Create an instance of express with routing-controllers
+const dotenv_1 = __importDefault(require("dotenv"));
+// Load environment variables from a .env file
+dotenv_1.default.config();
+// Create a custom express server instance
 const app = (0, routing_controllers_1.createExpressServer)({
     controllers: [UserController_1.UserController],
     defaultErrorHandler: false,
@@ -30,32 +33,28 @@ jest.mock('../services/UserService', () => ({
 }));
 const { register, login } = require('../services/UserService').default;
 describe('User Routes', () => {
+    beforeEach(() => {
+        jest.resetModules();
+        jest.clearAllMocks();
+    });
     it('should register a user', () => __awaiter(void 0, void 0, void 0, function* () {
-        register.mockImplementation((req, res) => {
-            res.status(201).json(Object.assign({ id: 1 }, req.body));
-        });
+        const userData = { username: 'testuser', password: 'password', role: 'user' };
+        const expectedResponse = Object.assign({ id: 1 }, userData);
+        register.mockResolvedValue(expectedResponse);
         const response = yield (0, supertest_1.default)(app)
             .post('/register')
-            .send({
-            username: 'testuser',
-            password: 'password',
-            role: 'user',
-        });
+            .send(userData);
         expect(response.status).toBe(201);
-        expect(response.body).toHaveProperty('id', 1);
-        expect(response.body).toHaveProperty('username', 'testuser');
+        expect(response.body).toEqual(expectedResponse);
     }));
     it('should login a user', () => __awaiter(void 0, void 0, void 0, function* () {
-        login.mockImplementation((req, res) => {
-            res.status(200).json({ token: 'mock-token' });
-        });
+        const loginData = { username: 'testuser', password: 'password' };
+        const expectedResponse = { token: 'mock-token' };
+        login.mockResolvedValue(expectedResponse);
         const response = yield (0, supertest_1.default)(app)
             .post('/login')
-            .send({
-            username: 'testuser',
-            password: 'password',
-        });
+            .send(loginData);
         expect(response.status).toBe(200);
-        expect(response.body).toHaveProperty('token', 'mock-token');
+        expect(response.body).toEqual(expectedResponse);
     }));
 });

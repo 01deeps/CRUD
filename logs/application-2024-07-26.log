@@ -1,0 +1,279 @@
+2024-07-26T04:06:11.588Z warn: Invalid Token 
+2024-07-26T04:06:23.814Z info: User login attempt 
+2024-07-26T04:06:24.196Z info: User logged in: Deepan S 
+2024-07-26T04:06:24.198Z info: User logged in successfully 
+2024-07-26T04:06:48.553Z warn: User role user not authorized 
+2024-07-26T06:07:56.256Z warn: Invalid Token 
+2024-07-26T06:07:56.311Z warn: Invalid Token 
+2024-07-26T06:07:56.336Z warn: Invalid Token 
+2024-07-26T06:07:56.352Z warn: Invalid Token 
+2024-07-26T06:07:56.332Z info: Registering user 
+2024-07-26T06:07:56.384Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser"
+}
+2024-07-26T06:07:56.503Z info: User login attempt 
+2024-07-26T06:07:56.505Z info: User logged in successfully 
+2024-07-26T06:12:59.857Z warn: Invalid Token 
+2024-07-26T06:12:59.921Z warn: Invalid Token 
+2024-07-26T06:12:59.863Z info: Registering user 
+2024-07-26T06:12:59.946Z warn: Invalid Token 
+2024-07-26T06:12:59.966Z warn: Invalid Token 
+2024-07-26T06:12:59.927Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser"
+}
+2024-07-26T06:13:00.019Z info: User login attempt 
+2024-07-26T06:13:00.024Z info: User logged in successfully 
+2024-07-26T06:17:19.778Z info: Registering user 
+2024-07-26T06:17:19.805Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser"
+}
+2024-07-26T06:17:19.923Z info: User login attempt 
+2024-07-26T06:17:19.925Z info: User logged in successfully 
+2024-07-26T08:00:59.840Z warn: Invalid Token 
+2024-07-26T08:00:59.925Z warn: Invalid Token 
+2024-07-26T08:00:59.957Z warn: Invalid Token 
+2024-07-26T08:00:59.923Z info: Registering user 
+2024-07-26T08:00:59.997Z warn: Invalid Token 
+2024-07-26T08:00:59.992Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser"
+}
+2024-07-26T08:01:00.126Z info: User login attempt 
+2024-07-26T08:01:00.128Z info: User logged in successfully 
+2024-07-26T08:09:57.764Z warn: Invalid Token 
+2024-07-26T08:09:57.732Z info: Registering user 
+2024-07-26T08:09:57.839Z warn: Invalid Token 
+2024-07-26T08:09:57.867Z warn: Invalid Token 
+2024-07-26T08:09:57.825Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-26T08:09:57.895Z warn: Invalid Token 
+2024-07-26T08:09:57.918Z info: User login attempt 
+2024-07-26T08:09:57.919Z warn: Invalid Token 
+2024-07-26T08:09:57.921Z info: User logged in successfully 
+2024-07-26T08:09:57.941Z warn: Invalid Token 
+2024-07-26T08:09:57.966Z warn: Invalid Token 
+2024-07-26T08:09:58.001Z warn: Invalid Token 
+2024-07-26T08:12:13.498Z warn: Invalid Token 
+2024-07-26T08:12:13.456Z info: Registering user 
+2024-07-26T08:12:13.620Z warn: Invalid Token 
+2024-07-26T08:12:13.554Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-26T08:12:13.657Z warn: Invalid Token 
+2024-07-26T08:12:13.679Z info: User login attempt 
+2024-07-26T08:12:13.686Z warn: Invalid Token 
+2024-07-26T08:12:13.683Z info: User logged in successfully 
+2024-07-26T08:12:13.717Z warn: Invalid Token 
+2024-07-26T08:12:13.747Z warn: Invalid Token 
+2024-07-26T08:12:13.786Z warn: Invalid Token 
+2024-07-26T08:12:13.817Z warn: Invalid Token 
+2024-07-26T08:33:45.473Z info: Registering user 
+2024-07-26T08:33:45.540Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-26T08:33:45.652Z info: User login attempt 
+2024-07-26T08:33:45.654Z info: User logged in successfully 
+2024-07-26T08:44:21.467Z info: Registering user 
+2024-07-26T08:44:21.512Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-26T08:44:21.633Z info: User login attempt 
+2024-07-26T08:44:21.637Z info: User logged in successfully 
+2024-07-26T08:47:30.912Z info: Registering user 
+2024-07-26T08:47:30.948Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-26T08:47:31.065Z info: User login attempt 
+2024-07-26T08:47:31.067Z info: User logged in successfully 
+2024-07-26T08:52:04.465Z info: Registering user 
+2024-07-26T08:52:04.506Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-26T08:52:04.600Z info: User login attempt 
+2024-07-26T08:52:04.593Z warn: User role user not authorized 
+2024-07-26T08:52:04.603Z info: User logged in successfully 
+2024-07-26T09:17:21.025Z info: Registering user 
+2024-07-26T09:17:21.094Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-26T09:17:21.221Z info: User login attempt 
+2024-07-26T09:17:21.225Z info: User logged in successfully 
+2024-07-26T09:20:24.235Z info: Registering user 
+2024-07-26T09:20:24.297Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-26T09:20:24.392Z info: User login attempt 
+2024-07-26T09:20:24.395Z info: User logged in successfully 
+2024-07-26T09:20:24.406Z warn: User role user not authorized 
+2024-07-26T09:25:20.209Z info: Registering user 
+2024-07-26T09:25:20.265Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-26T09:25:20.370Z info: User login attempt 
+2024-07-26T09:25:20.374Z info: User logged in successfully 
+2024-07-26T09:31:57.523Z warn: Invalid Token 
+2024-07-26T09:32:03.343Z info: User login attempt 
+2024-07-26T09:32:03.568Z info: User logged in: Deepan S 
+2024-07-26T09:32:03.569Z info: User logged in successfully 
+2024-07-26T09:32:27.224Z warn: User role user not authorized 
+2024-07-26T09:32:32.875Z warn: User role user not authorized 
+2024-07-26T09:33:53.900Z info: Registering user 
+2024-07-26T09:33:54.280Z info: User registered successfully {
+  "dataValues": {
+    "id": 31,
+    "username": "Deepan Siva",
+    "password": "$2a$10$Hlrak4sVMod3Zc9/1.PCqOKk9efPa/oFD288K8ERJ2vYpYWz8XuJ.",
+    "role": "admin",
+    "updatedAt": "2024-07-26T09:33:54.221Z",
+    "createdAt": "2024-07-26T09:33:54.221Z"
+  },
+  "_previousDataValues": {
+    "username": "Deepan Siva",
+    "password": "$2a$10$Hlrak4sVMod3Zc9/1.PCqOKk9efPa/oFD288K8ERJ2vYpYWz8XuJ.",
+    "role": "admin",
+    "id": 31,
+    "createdAt": "2024-07-26T09:33:54.221Z",
+    "updatedAt": "2024-07-26T09:33:54.221Z"
+  },
+  "uniqno": 1,
+  "_changed": {},
+  "_options": {
+    "isNewRecord": true,
+    "_schema": null,
+    "_schemaDelimiter": ""
+  },
+  "isNewRecord": false
+}
+2024-07-26T09:34:06.714Z info: User login attempt 
+2024-07-26T09:34:06.972Z info: User logged in: Deepan Siva 
+2024-07-26T09:34:06.974Z info: User logged in successfully 
+2024-07-26T09:37:11.387Z info: Registering user 
+2024-07-26T09:37:11.664Z info: User registered successfully {
+  "dataValues": {
+    "id": 32,
+    "username": "Deepan Sivas",
+    "password": "$2a$10$0LdFQkgpt5HfwMBk3aiRherWYWHEGL5kwhY/awg74MKdSlH1VyV3u",
+    "role": "user",
+    "updatedAt": "2024-07-26T09:37:11.628Z",
+    "createdAt": "2024-07-26T09:37:11.628Z"
+  },
+  "_previousDataValues": {
+    "username": "Deepan Sivas",
+    "password": "$2a$10$0LdFQkgpt5HfwMBk3aiRherWYWHEGL5kwhY/awg74MKdSlH1VyV3u",
+    "role": "user",
+    "id": 32,
+    "createdAt": "2024-07-26T09:37:11.628Z",
+    "updatedAt": "2024-07-26T09:37:11.628Z"
+  },
+  "uniqno": 1,
+  "_changed": {},
+  "_options": {
+    "isNewRecord": true,
+    "_schema": null,
+    "_schemaDelimiter": ""
+  },
+  "isNewRecord": false
+}
+2024-07-26T09:37:26.070Z info: User login attempt 
+2024-07-26T09:37:26.416Z info: User logged in: Deepan Sivas 
+2024-07-26T09:37:26.417Z info: User logged in successfully 
+2024-07-26T09:38:07.893Z warn: User role user not authorized 
+2024-07-26T09:40:49.825Z warn: User role user not authorized 
+2024-07-26T09:44:02.804Z info: User login attempt 
+2024-07-26T09:44:03.037Z info: User logged in: Deepan Siva 
+2024-07-26T09:44:03.038Z info: User logged in successfully 
+2024-07-26T09:44:51.860Z info: User login attempt 
+2024-07-26T09:44:52.084Z info: User logged in: Deepan Sivas 
+2024-07-26T09:44:52.084Z info: User logged in successfully 
+2024-07-26T09:45:17.865Z warn: User role user not authorized 
+2024-07-26T09:51:50.777Z warn: User role user not authorized 
+2024-07-26T09:55:26.929Z warn: User role user not authorized 
+2024-07-26T09:58:59.726Z warn: User role user not authorized 
+2024-07-26T10:00:08.263Z warn: User role user not authorized 
+2024-07-26T10:01:21.335Z info: Registering user 
+2024-07-26T10:01:21.385Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-26T10:01:21.521Z info: User login attempt 
+2024-07-26T10:01:21.523Z info: User logged in successfully 
+2024-07-26T10:02:54.340Z warn: User role user not authorized 
+2024-07-26T10:03:39.480Z warn: User role user not authorized 
+2024-07-26T10:04:09.108Z warn: User role user not authorized 
+2024-07-26T10:07:56.695Z info: Registering user 
+2024-07-26T10:07:56.859Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-26T10:07:56.956Z info: User login attempt 
+2024-07-26T10:07:56.959Z info: User logged in successfully 
+2024-07-26T12:34:03.827Z info: Registering user 
+2024-07-26T12:34:03.865Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-26T12:34:03.939Z info: User login attempt 
+2024-07-26T12:34:03.941Z info: User logged in successfully 
+2024-07-26T12:35:37.611Z warn: Invalid Token 
+2024-07-26T12:35:44.714Z info: User login attempt 
+2024-07-26T12:35:45.050Z info: User logged in: Deepan Sivas 
+2024-07-26T12:35:45.052Z info: User logged in successfully 
+2024-07-26T12:36:33.710Z warn: User role user not authorized 
+2024-07-26T12:36:47.785Z info: User login attempt 
+2024-07-26T12:36:47.929Z warn: Invalid login attempt: Deepan Sivass 
+2024-07-26T12:36:47.930Z error: Error logging in user: Invalid credentials 
+2024-07-26T12:36:47.931Z warn: Invalid login attempt Invalid credentials {
+  "stack": "Error: Invalid credentials\n    at UserService.<anonymous> (E:\\alp\\OPCODE\\Logger\\Opcode\\dist\\services\\UserService.js:54:27)\n    at Generator.next (<anonymous>)\n    at fulfilled (E:\\alp\\OPCODE\\Logger\\Opcode\\dist\\services\\UserService.js:5:58)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-07-26T12:36:53.687Z info: User login attempt 
+2024-07-26T12:36:53.692Z warn: Invalid login attempt: Deepan Sivass 
+2024-07-26T12:36:53.694Z error: Error logging in user: Invalid credentials 
+2024-07-26T12:36:53.695Z warn: Invalid login attempt Invalid credentials {
+  "stack": "Error: Invalid credentials\n    at UserService.<anonymous> (E:\\alp\\OPCODE\\Logger\\Opcode\\dist\\services\\UserService.js:54:27)\n    at Generator.next (<anonymous>)\n    at fulfilled (E:\\alp\\OPCODE\\Logger\\Opcode\\dist\\services\\UserService.js:5:58)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-07-26T12:37:04.742Z info: User login attempt 
+2024-07-26T12:37:04.850Z warn: Invalid login attempt: Deepan Sivasss 
+2024-07-26T12:37:04.855Z error: Error logging in user: Invalid credentials 
+2024-07-26T12:37:04.856Z warn: Invalid login attempt Invalid credentials {
+  "stack": "Error: Invalid credentials\n    at UserService.<anonymous> (E:\\alp\\OPCODE\\Logger\\Opcode\\dist\\services\\UserService.js:54:27)\n    at Generator.next (<anonymous>)\n    at fulfilled (E:\\alp\\OPCODE\\Logger\\Opcode\\dist\\services\\UserService.js:5:58)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-07-26T12:37:13.024Z info: User login attempt 
+2024-07-26T12:37:13.186Z info: User logged in: Deepan Siva 
+2024-07-26T12:37:13.187Z info: User logged in successfully 

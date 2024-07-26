@@ -2,10 +2,9 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from '../models/User';
 import logger from '../config/logger';
-import { Request, Response } from 'express';
 
 class UserService {
-  public async register(req: Request, res: Response, body: any): Promise<any> {
+  public async register(body: any): Promise<any> {
     try {
       const { username, password, role } = body;
 
@@ -25,20 +24,11 @@ class UserService {
       return user;
     } catch (error: any) {
       logger.error(`Error registering user: ${error.message || error}`);
-
-      // Handle unique constraint error
-      if (error.name === 'SequelizeUniqueConstraintError') {
-        res.status(400).json({ message: 'Username already exists' });
-      } else {
-        if (!res.headersSent) {
-          res.status(500).json({ error: 'Internal Server Error' });
-        }
-      }
       throw error;
     }
   }
 
-  public async login(req: Request, res: Response, body: any): Promise<void> {
+  public async login(body: any): Promise<{ token: string }> {
     try {
       const { username, password } = body;
       const user = await User.findOne({ where: { username } });
@@ -49,21 +39,15 @@ class UserService {
           process.env.JWT_SECRET as string,
           { expiresIn: '1h' }
         );
-        if (!res.headersSent) {
-          res.status(200).json({ token });
-        }
         logger.info(`User logged in: ${username}`);
+        return { token };
       } else {
-        if (!res.headersSent) {
-          res.status(401).json({ error: 'Invalid credentials' });
-        }
         logger.warn(`Invalid login attempt: ${username}`);
+        throw new Error('Invalid credentials');
       }
     } catch (error: any) {
-      if (!res.headersSent) {
-        res.status(500).json({ error: 'Internal Server Error' });
-      }
       logger.error(`Error logging in user: ${error.message || error}`);
+      throw error;
     }
   }
 }

@@ -4,7 +4,6 @@ import { database } from './config/database';
 import { EventController } from './controllers/EventController';
 import { UserController } from './controllers/UserController';
 import authMiddleware from './middleware/auth';
-
 import 'reflect-metadata';
 
 class Server {
@@ -27,6 +26,7 @@ class Server {
   private configureMiddleware(): void {
     this.app.use(express.json()); // Ensure this is before any routes
   }
+
   private configureErrorHandling(): void {
     this.app.use((err: any, req: Request, res: Response, next: NextFunction) => {
       console.error('Internal Server Error:', err.stack);

@@ -16,14 +16,24 @@ const supertest_1 = __importDefault(require("supertest"));
 const routing_controllers_1 = require("routing-controllers");
 const EventController_1 = require("../controllers/EventController");
 const auth_1 = __importDefault(require("../middleware/auth"));
-// Create a custom express server instance
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+require("reflect-metadata");
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
+// Setting the secret for testing
+process.env.JWT_SECRET = 'your-secret-key';
+const generateToken = (role, userId) => {
+    return jsonwebtoken_1.default.sign({ role, userId }, process.env.JWT_SECRET, { expiresIn: '1h' });
+};
+const adminToken = generateToken('admin');
+const userToken = generateToken('user', 1);
 const app = (0, routing_controllers_1.createExpressServer)({
     controllers: [EventController_1.EventController],
     middlewares: [auth_1.default.authenticateJWT, auth_1.default.authorizeRoles('user', 'admin')],
     defaultErrorHandler: false,
 });
-// Mock EventController methods
-jest.mock('../controllers/EventController', () => ({
+// Mock EventService methods
+jest.mock('../services/EventService', () => ({
     __esModule: true,
     default: {
         createEvent: jest.fn(),
@@ -32,58 +42,56 @@ jest.mock('../controllers/EventController', () => ({
         deleteEvent: jest.fn(),
     },
 }));
-const { createEvent, getEvents, updateEvent, deleteEvent } = require('../controllers/EventController').default;
-describe('Event Routes with Mocked Middleware', () => {
+const { createEvent, getEvents, updateEvent, deleteEvent } = require('../services/EventService').default;
+describe('Event Routes with Role-Based Access', () => {
     beforeEach(() => {
         jest.resetModules();
         jest.clearAllMocks();
     });
-    it('should create an event', () => __awaiter(void 0, void 0, void 0, function* () {
-        createEvent.mockImplementation((req, res) => {
-            res.status(201).json(Object.assign({ id: 1 }, req.body));
-        });
-        const response = yield (0, supertest_1.default)(app)
-            .post('/events')
-            .send({
+    const testCRUDOperations = (token, role, isAdmin) => {
+        const eventData = {
             event_name: 'New Event',
-            date: new Date(),
+            date: new Date().toISOString(),
             description: 'New Event Description',
-        });
-        expect(response.status).toBe(201);
-        expect(response.body).toHaveProperty('id', 1);
-        expect(response.body).toHaveProperty('event_name', 'New Event');
-        expect(response.body).toHaveProperty('description', 'New Event Description');
-    }));
-    it('should get all events', () => __awaiter(void 0, void 0, void 0, function* () {
-        getEvents.mockImplementation((req, res) => {
-            res.status(200).json([{ id: 1, event_name: 'Event 1', description: 'Description 1' }]);
-        });
-        const response = yield (0, supertest_1.default)(app).get('/events');
-        expect(response.status).toBe(200);
-        expect(response.body.length).toBeGreaterThan(0);
-    }));
-    it('should update an event', () => __awaiter(void 0, void 0, void 0, function* () {
-        updateEvent.mockImplementation((req, res) => {
-            res.status(200).json(Object.assign({ id: req.params.id }, req.body));
-        });
-        const response = yield (0, supertest_1.default)(app)
-            .put('/events/1')
-            .send({
+        };
+        const updatedEventData = {
             event_name: 'Updated Event',
-            date: new Date(),
+            date: new Date().toISOString(),
             description: 'Updated Description',
-        });
-        expect(response.status).toBe(200);
-        expect(response.body).toHaveProperty('id', '1');
-        expect(response.body).toHaveProperty('event_name', 'Updated Event');
-        expect(response.body).toHaveProperty('description', 'Updated Description');
-    }));
-    it('should delete an event', () => __awaiter(void 0, void 0, void 0, function* () {
-        deleteEvent.mockImplementation((req, res) => {
-            res.status(200).json({ message: 'Event deleted' });
-        });
-        const response = yield (0, supertest_1.default)(app).delete('/events/1');
-        expect(response.status).toBe(200);
-        expect(response.body).toHaveProperty('message', 'Event deleted');
-    }));
+        };
+        const expectedResponse = {
+            id: 1,
+            event_name: updatedEventData.event_name,
+            date: updatedEventData.date,
+            description: updatedEventData.description,
+        };
+        it(`should allow ${role} to create an event`, () => __awaiter(void 0, void 0, void 0, function* () {
+            createEvent.mockResolvedValue(Object.assign({ id: 1 }, eventData));
+            const response = yield (0, supertest_1.default)(app)
+                .post('/events')
+                .set('Authorization', `Bearer ${token}`)
+                .send(eventData);
+            expect(response.status).toBe(201);
+            expect(response.body).toEqual(Object.assign({ id: 1 }, eventData));
+        }));
+        it(`should allow ${role} to update an event`, () => __awaiter(void 0, void 0, void 0, function* () {
+            updateEvent.mockResolvedValue(expectedResponse);
+            const response = yield (0, supertest_1.default)(app)
+                .put('/events/1')
+                .set('Authorization', `Bearer ${token}`)
+                .send(updatedEventData);
+            expect(response.status).toBe(200);
+            expect(response.body).toEqual(expectedResponse);
+        }));
+        it(`should allow ${role} to delete an event`, () => __awaiter(void 0, void 0, void 0, function* () {
+            deleteEvent.mockResolvedValue({ message: 'Event deleted' });
+            const response = yield (0, supertest_1.default)(app)
+                .delete('/events/1')
+                .set('Authorization', `Bearer ${token}`);
+            expect(response.status).toBe(200);
+            expect(response.body).toEqual({ message: 'Event deleted' });
+        }));
+    };
+    testCRUDOperations(adminToken, 'admin', true);
+    testCRUDOperations(userToken, 'user', false);
 });

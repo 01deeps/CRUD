@@ -17,7 +17,7 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const User_1 = __importDefault(require("../models/User"));
 const logger_1 = __importDefault(require("../config/logger"));
 class UserService {
-    register(req, res, body) {
+    register(body) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { username, password, role } = body;
@@ -35,43 +35,28 @@ class UserService {
             }
             catch (error) {
                 logger_1.default.error(`Error registering user: ${error.message || error}`);
-                // Handle unique constraint error
-                if (error.name === 'SequelizeUniqueConstraintError') {
-                    res.status(400).json({ message: 'Username already exists' });
-                }
-                else {
-                    if (!res.headersSent) {
-                        res.status(500).json({ error: 'Internal Server Error' });
-                    }
-                }
                 throw error;
             }
         });
     }
-    login(req, res, body) {
+    login(body) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { username, password } = body;
                 const user = yield User_1.default.findOne({ where: { username } });
                 if (user && (yield bcryptjs_1.default.compare(password, user.password))) {
                     const token = jsonwebtoken_1.default.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
-                    if (!res.headersSent) {
-                        res.status(200).json({ token });
-                    }
                     logger_1.default.info(`User logged in: ${username}`);
+                    return { token };
                 }
                 else {
-                    if (!res.headersSent) {
-                        res.status(401).json({ error: 'Invalid credentials' });
-                    }
                     logger_1.default.warn(`Invalid login attempt: ${username}`);
+                    throw new Error('Invalid credentials');
                 }
             }
             catch (error) {
-                if (!res.headersSent) {
-                    res.status(500).json({ error: 'Internal Server Error' });
-                }
                 logger_1.default.error(`Error logging in user: ${error.message || error}`);
+                throw error;
             }
         });
     }

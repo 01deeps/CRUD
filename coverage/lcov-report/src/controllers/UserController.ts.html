@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">81.81% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/24</span>
+                <span class='fraction'>18/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/22</span>
+                <span class='fraction'>16/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -96,84 +96,69 @@
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { JsonController, Post, Body, Req, Res } from 'routing-controllers';</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { JsonController, Post, Body, Req, Res } from 'routing-controllers';
 import { Request, Response } from 'express';
-<span class="cstat-no" title="statement not covered" >import UserService from '../services/UserService';</span>
-<span class="cstat-no" title="statement not covered" >import logger from '../config/logger';</span>
+import UserService from '../services/UserService';
+import logger from '../config/logger';
 &nbsp;
 @JsonController()
-export <span class="cstat-no" title="statement not covered" >class <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >UserController </span>{</span></span>
+export class UserController {
   @Post('/register')
-  async <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >register(</span>@Req() req: Request, @Res() res: Response, @Body() body: any) {</span>
-<span class="cstat-no" title="statement not covered" >    try {</span>
-<span class="cstat-no" title="statement not covered" >      logger.info('Registering user');</span>
-      const user = <span class="cstat-no" title="statement not covered" >await UserService.register(req, res, body);</span>
-<span class="cstat-no" title="statement not covered" >      logger.info('User registered successfully', user);</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!res.headersSent) {</span>
-<span class="cstat-no" title="statement not covered" >        res.status(201).json(user);</span>
-      }
+  async register(@Req() req: Request, @Res() res: Response, @Body() body: any) {
+    try {
+      logger.info('Registering user');
+      const user = await UserService.register(body);
+      logger.info('User registered successfully', user);
+      res.status(201).json(user);
     } catch (error) {
 <span class="cstat-no" title="statement not covered" >      logger.error('Error registering user', error);</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!res.headersSent) {</span>
-<span class="cstat-no" title="statement not covered" >        res.status(500).json({ message: 'Error registering user. Please try again later.' });</span>
-      }
+<span class="cstat-no" title="statement not covered" >      res.status(500).json({ message: 'Error registering user. Please try again later.' });</span>
     }
   }
 &nbsp;
   @Post('/login')
-  async <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >login(</span>@Req() req: Request, @Res() res: Response, @Body() body: any) {</span>
-<span class="cstat-no" title="statement not covered" >    try {</span>
-<span class="cstat-no" title="statement not covered" >      logger.info('User login attempt');</span>
-<span class="cstat-no" title="statement not covered" >      await UserService.login(req, res, body);</span>
-<span class="cstat-no" title="statement not covered" >      logger.info('User logged in successfully');</span>
+  async login(@Req() req: Request, @Res() res: Response, @Body() body: any) {
+    try {
+      logger.info('User login attempt');
+      const { token } = await UserService.login(body);
+      logger.info('User logged in successfully');
+      res.status(200).json({ token });
     } catch (error) {
 <span class="cstat-no" title="statement not covered" >      logger.warn('Invalid login attempt', error);</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!res.headersSent) {</span>
-<span class="cstat-no" title="statement not covered" >        res.status(401).json({ message: 'Invalid credentials. Please check your username and password.' });</span>
-      }
+<span class="cstat-no" title="statement not covered" >      res.status(401).json({ message: 'Invalid credentials. Please check your username and password.' });</span>
     }
   }
 }
@@ -184,7 +169,7 @@ export <span class="cstat-no" title="statement not covered" >class <span class="
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-07-25T11:58:55.889Z
+                at 2024-07-26T12:34:21.840Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

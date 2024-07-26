@@ -1,9 +1,14 @@
 import request from 'supertest';
-import express from 'express';
 import { createExpressServer } from 'routing-controllers';
 import { UserController } from '../controllers/UserController';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
-// Create an instance of express with routing-controllers
+
+// Load environment variables from a .env file
+dotenv.config();
+
+// Create a custom express server instance
 const app = createExpressServer({
   controllers: [UserController],
   defaultErrorHandler: false,
@@ -21,37 +26,36 @@ jest.mock('../services/UserService', () => ({
 const { register, login } = require('../services/UserService').default;
 
 describe('User Routes', () => {
+  beforeEach(() => {
+    jest.resetModules();
+    jest.clearAllMocks();
+  });
+
   it('should register a user', async () => {
-    (register as jest.Mock).mockImplementation((req: any, res: any) => {
-      res.status(201).json({ id: 1, ...req.body });
-    });
+    const userData = { username: 'testuser', password: 'password', role: 'user' };
+    const expectedResponse = { id: 1, ...userData };
+    
+    (register as jest.Mock).mockResolvedValue(expectedResponse);
 
     const response = await request(app)
       .post('/register')
-      .send({
-        username: 'testuser',
-        password: 'password',
-        role: 'user',
-      });
+      .send(userData);
 
     expect(response.status).toBe(201);
-    expect(response.body).toHaveProperty('id', 1);
-    expect(response.body).toHaveProperty('username', 'testuser');
+    expect(response.body).toEqual(expectedResponse);
   });
 
   it('should login a user', async () => {
-    (login as jest.Mock).mockImplementation((req: any, res: any) => {
-      res.status(200).json({ token: 'mock-token' });
-    });
+    const loginData = { username: 'testuser', password: 'password' };
+    const expectedResponse = { token: 'mock-token' };
+    
+    (login as jest.Mock).mockResolvedValue(expectedResponse);
 
     const response = await request(app)
       .post('/login')
-      .send({
-        username: 'testuser',
-        password: 'password',
-      });
+      .send(loginData);
 
     expect(response.status).toBe(200);
-    expect(response.body).toHaveProperty('token', 'mock-token');
+    expect(response.body).toEqual(expectedResponse);
   });
 });

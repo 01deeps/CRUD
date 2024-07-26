@@ -46,7 +46,7 @@ class EventService {
             console.log('getEvents called');
             try {
                 if (userRole !== 'admin') {
-                    throw new Error('Access denied');
+                    throw new Error('Unauthorized access');
                 }
                 const events = yield Event_1.default.findAll();
                 console.log('Events fetched:', events);
@@ -61,7 +61,12 @@ class EventService {
             }
             catch (error) {
                 console.log('Error fetching events:', error);
-                throw new Error('Internal Server Error');
+                if (error.message === 'Unauthorized access') {
+                    throw new Error(error.message);
+                }
+                else {
+                    throw new Error('Internal Server Error');
+                }
             }
         });
         this.updateEvent = (id, eventData, userId, userRole) => __awaiter(this, void 0, void 0, function* () {
@@ -70,9 +75,9 @@ class EventService {
             console.log('Request Body:', eventData);
             try {
                 const { event_name, date, description } = eventData;
-                if (!event_name || !date || !description) {
-                    throw new Error('Missing required fields');
-                }
+                // if (!event_name || !date || !description) {
+                //   throw new Error('Missing required fields');
+                // }
                 const event = yield Event_1.default.findByPk(id);
                 if (event && (event.userId === userId || userRole === 'admin')) {
                     event.event_name = event_name;
@@ -91,12 +96,17 @@ class EventService {
                     };
                 }
                 else {
-                    throw new Error('Event not found or unauthorized access');
+                    throw new Error('Unauthorized access');
                 }
             }
             catch (error) {
                 console.log('Error updating event:', error);
-                throw new Error('Internal Server Error');
+                if (error.message === 'Unauthorized access') {
+                    throw new Error(error.message);
+                }
+                else {
+                    throw new Error('Missing required fields');
+                }
             }
         });
         this.deleteEvent = (id, userId, userRole) => __awaiter(this, void 0, void 0, function* () {
@@ -114,12 +124,17 @@ class EventService {
                     };
                 }
                 else {
-                    throw new Error('Event not found or unauthorized access');
+                    throw new Error('Unauthorized access');
                 }
             }
             catch (error) {
                 console.log('Error deleting event:', error);
-                throw new Error('Internal Server Error');
+                if (error.message === 'Unauthorized access') {
+                    throw new Error(error.message);
+                }
+                else {
+                    throw new Error('Internal Server Error');
+                }
             }
         });
     }
