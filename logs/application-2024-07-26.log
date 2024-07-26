@@ -277,3 +277,21 @@
 2024-07-26T12:37:13.024Z info: User login attempt 
 2024-07-26T12:37:13.186Z info: User logged in: Deepan Siva 
 2024-07-26T12:37:13.187Z info: User logged in successfully 
+2024-07-26T12:44:48.266Z info: Registering user 
+2024-07-26T12:44:48.344Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-26T12:44:48.431Z info: User login attempt 
+2024-07-26T12:44:48.438Z info: User logged in successfully 
+2024-07-26T12:45:23.413Z info: Registering user 
+2024-07-26T12:45:23.462Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-26T12:45:23.573Z info: User login attempt 
+2024-07-26T12:45:23.576Z info: User logged in successfully 

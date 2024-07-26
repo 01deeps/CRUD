@@ -3,6 +3,9 @@ import { createExpressServer } from 'routing-controllers';
 import { UserController } from '../controllers/UserController';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
+// jest.setup.ts
+import 'reflect-metadata';
+
 
 
 // Load environment variables from a .env file

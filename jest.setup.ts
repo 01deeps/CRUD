@@ -1,2 +1,2 @@
-// jest.setup.ts
-import 'reflect-metadata';
+// // jest.setup.ts
+// import 'reflect-metadata';
