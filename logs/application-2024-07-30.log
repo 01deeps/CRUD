@@ -1,0 +1,1483 @@
+2024-07-30T05:06:18.562Z info: Registering user 
+2024-07-30T05:06:18.622Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-30T05:06:18.750Z info: User login attempt 
+2024-07-30T05:06:18.755Z info: User logged in successfully 
+2024-07-30T05:13:25.012Z info: User login attempt 
+2024-07-30T05:13:25.373Z info: User logged in: Deepan Siva 
+2024-07-30T05:13:25.375Z info: User logged in successfully 
+2024-07-30T05:14:36.592Z info: User login attempt 
+2024-07-30T05:14:36.908Z info: User logged in: Deepan S 
+2024-07-30T05:14:36.910Z info: User logged in successfully 
+2024-07-30T05:15:36.965Z warn: User role user not authorized 
+2024-07-30T05:15:50.856Z warn: User role user not authorized 
+2024-07-30T05:31:26.318Z warn: User role user not authorized 
+2024-07-30T05:31:38.314Z info: createEvent called {
+  "requestBody": {
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00Z",
+    "description": "Sample  for description for events"
+  },
+  "userId": 30
+}
+2024-07-30T05:31:38.481Z info: Event created successfully {
+  "event": {
+    "id": 34,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  }
+}
+2024-07-30T06:55:42.049Z info: Registering user 
+2024-07-30T06:55:42.115Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-30T06:55:42.248Z info: User login attempt 
+2024-07-30T06:55:42.251Z info: User logged in successfully 
+2024-07-30T06:55:42.948Z info: createEvent called {
+  "requestBody": {
+    "event_name": "New Event",
+    "date": "2024-07-30T06:55:42.799Z",
+    "description": "New Event Description"
+  }
+}
+2024-07-30T06:55:42.967Z info: Event created successfully {
+  "event": {
+    "id": 1,
+    "event_name": "New Event",
+    "date": "2024-07-30T06:55:42.799Z",
+    "description": "New Event Description"
+  }
+}
+2024-07-30T06:55:43.015Z info: updateEvent called {
+  "eventId": "1",
+  "requestBody": {
+    "event_name": "Updated Event",
+    "date": "2024-07-30T06:55:42.799Z",
+    "description": "Updated Description"
+  },
+  "userRole": "admin"
+}
+2024-07-30T06:55:43.017Z info: Event updated successfully {
+  "result": {
+    "id": 1,
+    "event_name": "Updated Event",
+    "date": "2024-07-30T06:55:42.799Z",
+    "description": "Updated Description"
+  }
+}
+2024-07-30T06:55:43.062Z info: deleteEvent called {
+  "eventId": "1",
+  "userRole": "admin"
+}
+2024-07-30T06:55:43.065Z info: Event deleted successfully {
+  "result": {
+    "message": "Event deleted"
+  }
+}
+2024-07-30T06:55:43.099Z info: createEvent called {
+  "requestBody": {
+    "event_name": "New Event",
+    "date": "2024-07-30T06:55:42.800Z",
+    "description": "New Event Description"
+  }
+}
+2024-07-30T06:55:43.101Z info: Event created successfully {
+  "event": {
+    "id": 1,
+    "event_name": "New Event",
+    "date": "2024-07-30T06:55:42.800Z",
+    "description": "New Event Description"
+  }
+}
+2024-07-30T06:55:43.138Z info: updateEvent called {
+  "eventId": "1",
+  "requestBody": {
+    "event_name": "Updated Event",
+    "date": "2024-07-30T06:55:42.800Z",
+    "description": "Updated Description"
+  },
+  "userRole": "user"
+}
+2024-07-30T06:55:43.141Z info: Event updated successfully {
+  "result": {
+    "id": 1,
+    "event_name": "Updated Event",
+    "date": "2024-07-30T06:55:42.800Z",
+    "description": "Updated Description"
+  }
+}
+2024-07-30T06:55:43.184Z info: deleteEvent called {
+  "eventId": "1",
+  "userRole": "user"
+}
+2024-07-30T06:55:43.186Z info: Event deleted successfully {
+  "result": {
+    "message": "Event deleted"
+  }
+}
+2024-07-30T07:01:10.250Z info: Registering user 
+2024-07-30T07:01:10.273Z info: createEvent called {
+  "requestBody": {
+    "event_name": "New Event",
+    "date": "2024-07-30T07:01:10.079Z",
+    "description": "New Event Description"
+  }
+}
+2024-07-30T07:01:10.287Z info: Event created successfully {
+  "event": {
+    "id": 1,
+    "event_name": "New Event",
+    "date": "2024-07-30T07:01:10.079Z",
+    "description": "New Event Description"
+  }
+}
+2024-07-30T07:01:10.342Z info: updateEvent called {
+  "eventId": "1",
+  "requestBody": {
+    "event_name": "Updated Event",
+    "date": "2024-07-30T07:01:10.080Z",
+    "description": "Updated Description"
+  },
+  "userRole": "admin"
+}
+2024-07-30T07:01:10.344Z info: Event updated successfully {
+  "result": {
+    "id": 1,
+    "event_name": "Updated Event",
+    "date": "2024-07-30T07:01:10.080Z",
+    "description": "Updated Description"
+  }
+}
+2024-07-30T07:01:10.270Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-30T07:01:10.358Z info: User login attempt 
+2024-07-30T07:01:10.360Z info: User logged in successfully 
+2024-07-30T07:01:10.367Z info: deleteEvent called {
+  "eventId": "1",
+  "userRole": "admin"
+}
+2024-07-30T07:01:10.371Z info: Event deleted successfully {
+  "result": {
+    "message": "Event deleted"
+  }
+}
+2024-07-30T07:01:10.396Z info: createEvent called {
+  "requestBody": {
+    "event_name": "New Event",
+    "date": "2024-07-30T07:01:10.081Z",
+    "description": "New Event Description"
+  }
+}
+2024-07-30T07:01:10.398Z info: Event created successfully {
+  "event": {
+    "id": 1,
+    "event_name": "New Event",
+    "date": "2024-07-30T07:01:10.081Z",
+    "description": "New Event Description"
+  }
+}
+2024-07-30T07:01:10.437Z info: updateEvent called {
+  "eventId": "1",
+  "requestBody": {
+    "event_name": "Updated Event",
+    "date": "2024-07-30T07:01:10.081Z",
+    "description": "Updated Description"
+  },
+  "userRole": "user"
+}
+2024-07-30T07:01:10.440Z info: Event updated successfully {
+  "result": {
+    "id": 1,
+    "event_name": "Updated Event",
+    "date": "2024-07-30T07:01:10.081Z",
+    "description": "Updated Description"
+  }
+}
+2024-07-30T07:01:10.467Z info: deleteEvent called {
+  "eventId": "1",
+  "userRole": "user"
+}
+2024-07-30T07:01:10.468Z info: Event deleted successfully {
+  "result": {
+    "message": "Event deleted"
+  }
+}
+2024-07-30T07:04:09.049Z info: Server is running on http://localhost:3000 
+2024-07-30T07:04:14.568Z error: Internal Server Error: ServiceNotFoundError: Service with "MaybeConstructable<UserController>" identifier was not found in the container. Register it before usage via explicitly calling the "Container.set" function or using the "@Service()" decorator.
+    at ContainerInstance.get (E:\alp\OPCODE\Logger\Opcode\node_modules\typedi\cjs\container-instance.class.js:45:15)
+    at Container.get (E:\alp\OPCODE\Logger\Opcode\node_modules\typedi\cjs\container.class.js:28:36)
+    at getFromContainer (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\container.js:39:44)
+    at ControllerMetadata.getInstance (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\metadata\ControllerMetadata.js:26:49)
+    at ActionMetadata.callMethod (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\metadata\ActionMetadata.js:89:60)
+    at E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\RoutingControllers.js:96:34
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+2024-07-30T07:06:20.171Z info: Server is running on http://localhost:3000 
+2024-07-30T07:07:57.142Z info: Server is running on http://localhost:3000 
+2024-07-30T07:08:02.337Z info: Registering user 
+2024-07-30T07:08:02.559Z info: User registered successfully {
+  "dataValues": {
+    "id": 33,
+    "username": "Deepa",
+    "password": "$2a$10$WVNOQJQLakhXgrl0Y1wz/.6dteQGU0AB3ArVvt7Afx7VcojaW1BYm",
+    "role": "user",
+    "updatedAt": "2024-07-30T07:08:02.510Z",
+    "createdAt": "2024-07-30T07:08:02.510Z"
+  },
+  "_previousDataValues": {
+    "username": "Deepa",
+    "password": "$2a$10$WVNOQJQLakhXgrl0Y1wz/.6dteQGU0AB3ArVvt7Afx7VcojaW1BYm",
+    "role": "user",
+    "id": 33,
+    "createdAt": "2024-07-30T07:08:02.510Z",
+    "updatedAt": "2024-07-30T07:08:02.510Z"
+  },
+  "uniqno": 1,
+  "_changed": {},
+  "_options": {
+    "isNewRecord": true,
+    "_schema": null,
+    "_schemaDelimiter": ""
+  },
+  "isNewRecord": false
+}
+2024-07-30T07:08:02.575Z error: Internal Server Error: Error
+    at new HttpError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\HttpError.js:17:22)
+    at new NotFoundError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\NotFoundError.js:10:9)
+    at ExpressDriver.handleSuccess (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\driver\express\ExpressDriver.js:294:23)
+    at E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\RoutingControllers.js:132:45
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+2024-07-30T07:09:41.325Z info: User login attempt 
+2024-07-30T07:09:41.569Z info: User logged in: Deepa 
+2024-07-30T07:09:41.572Z info: User logged in successfully 
+2024-07-30T07:09:41.577Z error: Internal Server Error: Error
+    at new HttpError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\HttpError.js:17:22)
+    at new NotFoundError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\NotFoundError.js:10:9)
+    at ExpressDriver.handleSuccess (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\driver\express\ExpressDriver.js:294:23)
+    at E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\RoutingControllers.js:132:45 
+2024-07-30T07:10:50.800Z warn: User role user not authorized 
+2024-07-30T07:12:31.880Z info: Server is running on http://localhost:3000 
+2024-07-30T07:13:02.444Z info: Server is running on http://localhost:3000 
+2024-07-30T07:14:11.676Z info: Server is running on http://localhost:3000 
+2024-07-30T07:14:16.844Z info: Registering user 
+2024-07-30T07:14:17.051Z info: User registered successfully {
+  "id": 34,
+  "username": "Kumar",
+  "role": "user",
+  "createdAt": "2024-07-30T07:14:17.009Z",
+  "updatedAt": "2024-07-30T07:14:17.009Z"
+}
+2024-07-30T07:14:17.063Z error: Internal Server Error:  {
+  "stack": "Error\n    at new HttpError (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\http-error\\HttpError.js:17:22)\n    at new NotFoundError (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\http-error\\NotFoundError.js:10:9)\n    at ExpressDriver.handleSuccess (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\driver\\express\\ExpressDriver.js:294:23)\n    at E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\RoutingControllers.js:132:45\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-07-30T07:14:40.873Z info: createEvent called 
+2024-07-30T07:14:40.877Z info: Request Body: {
+  "event_name": "Sample event",
+  "date": "2024-08-01T12:00:00Z",
+  "description": "Sample  for description for events"
+}
+2024-07-30T07:14:40.879Z info: User ID: 
+2024-07-30T07:14:41.069Z info: Event created: {
+  "id": 36,
+  "event_name": "Sample event",
+  "date": "2024-08-01T12:00:00.000Z",
+  "description": "Sample  for description for events",
+  "userId": 33
+}
+2024-07-30T07:15:24.971Z info: deleteEvent called 
+2024-07-30T07:15:24.972Z info: Event ID: 
+2024-07-30T07:15:24.973Z info: User ID: 
+2024-07-30T07:15:24.974Z info: User Role: 
+2024-07-30T07:15:25.136Z info: Event deleted: Event deleted {
+  "id": "36"
+}
+2024-07-30T07:16:12.251Z info: Server is running on http://localhost:3000 
+2024-07-30T07:16:36.196Z info: Server is running on http://localhost:3000 
+2024-07-30T07:16:40.498Z info: Registering user 
+2024-07-30T07:16:40.524Z error: Error registering user: Username already exists 
+2024-07-30T07:16:40.528Z error: Error registering user Username already exists {
+  "stack": "Error: Username already exists\n    at UserService.<anonymous> (E:\\alp\\OPCODE\\Logger\\Opcode\\dist\\services\\UserService.js:27:27)\n    at Generator.next (<anonymous>)\n    at fulfilled (E:\\alp\\OPCODE\\Logger\\Opcode\\dist\\services\\UserService.js:5:58)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-07-30T07:16:40.544Z error: Internal Server Error:  {
+  "stack": "Error\n    at new HttpError (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\http-error\\HttpError.js:17:22)\n    at new NotFoundError (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\http-error\\NotFoundError.js:10:9)\n    at ExpressDriver.handleSuccess (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\driver\\express\\ExpressDriver.js:294:23)\n    at E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\RoutingControllers.js:132:45\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-07-30T07:18:56.613Z info: Server is running on http://localhost:3000 
+2024-07-30T07:19:01.763Z info: createEvent called {
+  "requestBody": {
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00Z",
+    "description": "Sample  for description for events"
+  },
+  "userId": 33
+}
+2024-07-30T07:19:01.814Z info: Event created successfully {
+  "event": {
+    "id": 37,
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events"
+  }
+}
+2024-07-30T07:19:25.546Z info: Server is running on http://localhost:3000 
+2024-07-30T07:19:29.036Z info: Event created: {
+  "id": 38,
+  "event_name": "Sample event",
+  "date": "2024-08-01T12:00:00.000Z",
+  "description": "Sample  for description for events",
+  "userId": 33
+}
+2024-07-30T07:20:27.869Z info: Event deleted: Event deleted {
+  "id": "38"
+}
+2024-07-30T07:20:32.444Z info: Event deleted: Event deleted {
+  "id": "37"
+}
+2024-07-30T07:21:04.961Z info: Server is running on http://localhost:3000 
+2024-07-30T07:21:10.084Z info: createEvent called 
+2024-07-30T07:21:10.086Z info: Request Body: {
+  "event_name": "Sample event",
+  "date": "2024-08-01T12:00:00Z",
+  "description": "Sample  for description for events"
+}
+2024-07-30T07:21:10.089Z info: User ID: 
+2024-07-30T07:21:10.161Z info: Event created: {
+  "id": 39,
+  "date": "2024-08-01T12:00:00.000Z"
+}
+2024-07-30T07:21:31.804Z info: Server is running on http://localhost:3000 
+2024-07-30T07:21:35.018Z info: Event deleted: Event deleted {
+  "id": "39"
+}
+2024-07-30T07:23:04.871Z info: Server is running on http://localhost:3000 
+2024-07-30T07:23:09.078Z error: Internal Server Error: Service with "MaybeConstructable<EventController>" identifier was not found in the container. Register it before usage via explicitly calling the "Container.set" function or using the "@Service()" decorator. {
+  "stack": "ServiceNotFoundError: Service with \"MaybeConstructable<EventController>\" identifier was not found in the container. Register it before usage via explicitly calling the \"Container.set\" function or using the \"@Service()\" decorator.\n    at ContainerInstance.get (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\typedi\\cjs\\container-instance.class.js:45:15)\n    at Container.get (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\typedi\\cjs\\container.class.js:28:36)\n    at getFromContainer (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\container.js:39:44)\n    at ControllerMetadata.getInstance (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\metadata\\ControllerMetadata.js:26:49)\n    at ActionMetadata.callMethod (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\metadata\\ActionMetadata.js:89:60)\n    at E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\RoutingControllers.js:96:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-07-30T07:23:18.466Z error: Internal Server Error: Service with "MaybeConstructable<EventController>" identifier was not found in the container. Register it before usage via explicitly calling the "Container.set" function or using the "@Service()" decorator. {
+  "stack": "ServiceNotFoundError: Service with \"MaybeConstructable<EventController>\" identifier was not found in the container. Register it before usage via explicitly calling the \"Container.set\" function or using the \"@Service()\" decorator.\n    at ContainerInstance.get (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\typedi\\cjs\\container-instance.class.js:45:15)\n    at Container.get (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\typedi\\cjs\\container.class.js:28:36)\n    at getFromContainer (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\container.js:39:44)\n    at ControllerMetadata.getInstance (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\metadata\\ControllerMetadata.js:26:49)\n    at ActionMetadata.callMethod (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\metadata\\ActionMetadata.js:89:60)\n    at E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\RoutingControllers.js:96:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-07-30T07:23:22.924Z error: Internal Server Error: Service with "MaybeConstructable<EventController>" identifier was not found in the container. Register it before usage via explicitly calling the "Container.set" function or using the "@Service()" decorator. {
+  "stack": "ServiceNotFoundError: Service with \"MaybeConstructable<EventController>\" identifier was not found in the container. Register it before usage via explicitly calling the \"Container.set\" function or using the \"@Service()\" decorator.\n    at ContainerInstance.get (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\typedi\\cjs\\container-instance.class.js:45:15)\n    at Container.get (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\typedi\\cjs\\container.class.js:28:36)\n    at getFromContainer (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\container.js:39:44)\n    at ControllerMetadata.getInstance (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\metadata\\ControllerMetadata.js:26:49)\n    at ActionMetadata.callMethod (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\metadata\\ActionMetadata.js:89:60)\n    at E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\RoutingControllers.js:96:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-07-30T07:23:46.813Z info: Server is running on http://localhost:3000 
+2024-07-30T07:23:50.414Z error: Internal Server Error: Service with "MaybeConstructable<EventController>" identifier was not found in the container. Register it before usage via explicitly calling the "Container.set" function or using the "@Service()" decorator. {
+  "stack": "ServiceNotFoundError: Service with \"MaybeConstructable<EventController>\" identifier was not found in the container. Register it before usage via explicitly calling the \"Container.set\" function or using the \"@Service()\" decorator.\n    at ContainerInstance.get (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\typedi\\cjs\\container-instance.class.js:45:15)\n    at Container.get (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\typedi\\cjs\\container.class.js:28:36)\n    at getFromContainer (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\container.js:39:44)\n    at ControllerMetadata.getInstance (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\metadata\\ControllerMetadata.js:26:49)\n    at ActionMetadata.callMethod (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\metadata\\ActionMetadata.js:89:60)\n    at E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\RoutingControllers.js:96:34\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-07-30T07:24:13.325Z info: Server is running on http://localhost:3000 
+2024-07-30T07:24:17.532Z info: Event created: {
+  "id": 40,
+  "event_name": "Sample event",
+  "date": "2024-08-01T12:00:00.000Z",
+  "description": "Sample  for description for events",
+  "userId": 33
+}
+2024-07-30T07:25:18.328Z info: Registering user 
+2024-07-30T07:25:18.612Z info: User registered successfully {
+  "id": 35,
+  "username": "Kumars",
+  "role": "admin",
+  "createdAt": "2024-07-30T07:25:18.603Z",
+  "updatedAt": "2024-07-30T07:25:18.603Z"
+}
+2024-07-30T07:25:18.618Z error: Internal Server Error:  {
+  "stack": "Error\n    at new HttpError (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\http-error\\HttpError.js:17:22)\n    at new NotFoundError (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\http-error\\NotFoundError.js:10:9)\n    at ExpressDriver.handleSuccess (E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\driver\\express\\ExpressDriver.js:294:23)\n    at E:\\alp\\OPCODE\\Logger\\Opcode\\node_modules\\routing-controllers\\cjs\\RoutingControllers.js:132:45\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-07-30T07:29:52.947Z info: Server is running on http://localhost:3000 
+2024-07-30T07:30:16.088Z info: Server is running on http://localhost:3000 
+2024-07-30T07:30:32.051Z info: Server is running on http://localhost:3000 
+2024-07-30T07:30:53.926Z info: Server is running on http://localhost:3000 
+2024-07-30T07:31:13.001Z info: Server is running on http://localhost:3000 
+2024-07-30T07:31:17.088Z info: Registering user 
+2024-07-30T07:31:17.315Z info: User registered successfully {
+  "id": 36,
+  "username": "Kumarss",
+  "role": "admin",
+  "createdAt": "2024-07-30T07:31:17.299Z",
+  "updatedAt": "2024-07-30T07:31:17.299Z"
+}
+2024-07-30T07:31:17.324Z error: Internal Server Error: Error
+    at new HttpError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\HttpError.js:17:22)
+    at new NotFoundError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\NotFoundError.js:10:9)
+    at ExpressDriver.handleSuccess (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\driver\express\ExpressDriver.js:294:23)
+    at E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\RoutingControllers.js:132:45
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+2024-07-30T07:33:12.690Z info: Registering user 
+2024-07-30T07:33:12.737Z info: Event created: {
+  "id": 1,
+  "event_name": "New Event",
+  "date": "2024-07-30T07:33:12.545Z",
+  "description": "New Event Description"
+}
+2024-07-30T07:33:12.778Z info: Event updated: {
+  "id": 1,
+  "event_name": "Updated Event",
+  "date": "2024-07-30T07:33:12.545Z",
+  "description": "Updated Description"
+}
+2024-07-30T07:33:12.720Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "role": "user"
+}
+2024-07-30T07:33:12.793Z info: Event deleted: Event deleted 
+2024-07-30T07:33:12.794Z info: User login attempt 
+2024-07-30T07:33:12.795Z info: User logged in successfully 
+2024-07-30T07:33:12.817Z info: Event created: {
+  "id": 1,
+  "event_name": "New Event",
+  "date": "2024-07-30T07:33:12.545Z",
+  "description": "New Event Description"
+}
+2024-07-30T07:33:12.834Z info: Event updated: {
+  "id": 1,
+  "event_name": "Updated Event",
+  "date": "2024-07-30T07:33:12.545Z",
+  "description": "Updated Description"
+}
+2024-07-30T07:33:12.852Z info: Event deleted: Event deleted 
+2024-07-30T07:34:29.547Z info: Registering user 
+2024-07-30T07:34:29.566Z info: Event created: {
+  "id": 1,
+  "event_name": "New Event",
+  "date": "2024-07-30T07:34:29.423Z",
+  "description": "New Event Description"
+}
+2024-07-30T07:34:29.596Z info: Event updated: {
+  "id": 1,
+  "event_name": "Updated Event",
+  "date": "2024-07-30T07:34:29.424Z",
+  "description": "Updated Description"
+}
+2024-07-30T07:34:29.613Z info: Event deleted: Event deleted 
+2024-07-30T07:34:29.631Z info: Event created: {
+  "id": 1,
+  "event_name": "New Event",
+  "date": "2024-07-30T07:34:29.424Z",
+  "description": "New Event Description"
+}
+2024-07-30T07:34:29.560Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "role": "user"
+}
+2024-07-30T07:34:29.640Z info: User login attempt 
+2024-07-30T07:34:29.641Z info: User logged in successfully 
+2024-07-30T07:34:29.647Z info: Event updated: {
+  "id": 1,
+  "event_name": "Updated Event",
+  "date": "2024-07-30T07:34:29.424Z",
+  "description": "Updated Description"
+}
+2024-07-30T07:34:29.664Z info: Event deleted: Event deleted 
+2024-07-30T07:35:03.270Z info: Event created: {
+  "id": 1,
+  "event_name": "New Event",
+  "date": "2024-07-30T07:35:03.084Z",
+  "description": "New Event Description"
+}
+2024-07-30T07:35:03.255Z info: Registering user 
+2024-07-30T07:35:03.304Z info: Event updated: {
+  "id": 1,
+  "event_name": "Updated Event",
+  "date": "2024-07-30T07:35:03.084Z",
+  "description": "Updated Description"
+}
+2024-07-30T07:35:03.322Z info: Event deleted: Event deleted 
+2024-07-30T07:35:03.344Z info: Event created: {
+  "id": 1,
+  "event_name": "New Event",
+  "date": "2024-07-30T07:35:03.084Z",
+  "description": "New Event Description"
+}
+2024-07-30T07:35:03.280Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-30T07:35:03.350Z info: User login attempt 
+2024-07-30T07:35:03.352Z info: User logged in successfully 
+2024-07-30T07:35:03.357Z info: Event updated: {
+  "id": 1,
+  "event_name": "Updated Event",
+  "date": "2024-07-30T07:35:03.084Z",
+  "description": "Updated Description"
+}
+2024-07-30T07:35:03.371Z info: Event deleted: Event deleted 
+2024-07-30T07:35:33.063Z info: Server is running on http://localhost:3000 
+2024-07-30T07:35:49.577Z info: Registering user 
+2024-07-30T07:35:49.794Z info: User registered successfully {
+  "dataValues": {
+    "id": 37,
+    "username": "Kumar Deepan",
+    "password": "$2a$10$cTg81l91oVmXWellCSG0Oe84Ey5WgavdEboF4AAyILGeQgP/g3hg6",
+    "role": "admin",
+    "updatedAt": "2024-07-30T07:35:49.774Z",
+    "createdAt": "2024-07-30T07:35:49.774Z"
+  },
+  "_previousDataValues": {
+    "username": "Kumar Deepan",
+    "password": "$2a$10$cTg81l91oVmXWellCSG0Oe84Ey5WgavdEboF4AAyILGeQgP/g3hg6",
+    "role": "admin",
+    "id": 37,
+    "createdAt": "2024-07-30T07:35:49.774Z",
+    "updatedAt": "2024-07-30T07:35:49.774Z"
+  },
+  "uniqno": 1,
+  "_changed": {},
+  "_options": {
+    "isNewRecord": true,
+    "_schema": null,
+    "_schemaDelimiter": ""
+  },
+  "isNewRecord": false
+}
+2024-07-30T07:35:49.804Z error: Internal Server Error: Error
+    at new HttpError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\HttpError.js:17:22)
+    at new NotFoundError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\NotFoundError.js:10:9)
+    at ExpressDriver.handleSuccess (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\driver\express\ExpressDriver.js:294:23)
+    at E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\RoutingControllers.js:132:45
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+2024-07-30T07:36:08.371Z info: Registering user 
+2024-07-30T07:36:08.429Z error: Error registering user: Username already exists 
+2024-07-30T07:36:08.431Z error: Error registering user Username already exists {
+  "stack": "Error: Username already exists\n    at UserService.<anonymous> (E:\\alp\\OPCODE\\Logger\\Opcode\\dist\\services\\UserService.js:27:27)\n    at Generator.next (<anonymous>)\n    at fulfilled (E:\\alp\\OPCODE\\Logger\\Opcode\\dist\\services\\UserService.js:5:58)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-07-30T07:36:08.432Z error: Internal Server Error: Error
+    at new HttpError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\HttpError.js:17:22)
+    at new NotFoundError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\NotFoundError.js:10:9)
+    at ExpressDriver.handleSuccess (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\driver\express\ExpressDriver.js:294:23)
+    at E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\RoutingControllers.js:132:45
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+2024-07-30T07:36:13.468Z info: User login attempt 
+2024-07-30T07:36:13.565Z info: User logged in: Kumar Deepan 
+2024-07-30T07:36:13.566Z info: User logged in successfully 
+2024-07-30T07:36:13.567Z error: Internal Server Error: Error
+    at new HttpError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\HttpError.js:17:22)
+    at new NotFoundError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\NotFoundError.js:10:9)
+    at ExpressDriver.handleSuccess (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\driver\express\ExpressDriver.js:294:23)
+    at E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\RoutingControllers.js:132:45 
+2024-07-30T07:36:36.258Z info: Events fetched: {
+  "0": {
+    "id": 40,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 33
+  },
+  "1": {
+    "id": 15,
+    "event_name": "Deepan",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode",
+    "userId": 12
+  },
+  "2": {
+    "id": 17,
+    "event_name": "Deepan Kumar",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode Technologies",
+    "userId": 14
+  },
+  "3": {
+    "id": 13,
+    "event_name": "Opcode Technologies",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup",
+    "userId": 12
+  },
+  "4": {
+    "id": 23,
+    "event_name": "Opcode Technologiesssss",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup Company in Gobichettipalayam",
+    "userId": 18
+  },
+  "5": {
+    "id": 33,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  },
+  "6": {
+    "id": 34,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  }
+}
+2024-07-30T07:36:55.974Z info: Event created: {
+  "id": 41,
+  "event_name": "Sample event",
+  "date": "2024-08-01T12:00:00.000Z",
+  "description": "Sample  for description for events",
+  "userId": 37
+}
+2024-07-30T07:37:02.784Z info: Events fetched: {
+  "0": {
+    "id": 40,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 33
+  },
+  "1": {
+    "id": 41,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  },
+  "2": {
+    "id": 15,
+    "event_name": "Deepan",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode",
+    "userId": 12
+  },
+  "3": {
+    "id": 17,
+    "event_name": "Deepan Kumar",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode Technologies",
+    "userId": 14
+  },
+  "4": {
+    "id": 13,
+    "event_name": "Opcode Technologies",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup",
+    "userId": 12
+  },
+  "5": {
+    "id": 23,
+    "event_name": "Opcode Technologiesssss",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup Company in Gobichettipalayam",
+    "userId": 18
+  },
+  "6": {
+    "id": 33,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  },
+  "7": {
+    "id": 34,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  }
+}
+2024-07-30T07:37:23.973Z info: Event deleted: Event deleted {
+  "id": "40"
+}
+2024-07-30T07:37:26.211Z info: Event deleted: Event deleted {
+  "id": "41"
+}
+2024-07-30T07:37:33.163Z info: Events fetched: {
+  "0": {
+    "id": 15,
+    "event_name": "Deepan",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode",
+    "userId": 12
+  },
+  "1": {
+    "id": 17,
+    "event_name": "Deepan Kumar",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode Technologies",
+    "userId": 14
+  },
+  "2": {
+    "id": 13,
+    "event_name": "Opcode Technologies",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup",
+    "userId": 12
+  },
+  "3": {
+    "id": 23,
+    "event_name": "Opcode Technologiesssss",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup Company in Gobichettipalayam",
+    "userId": 18
+  },
+  "4": {
+    "id": 33,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  },
+  "5": {
+    "id": 34,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  }
+}
+2024-07-30T07:37:40.909Z info: Event created: {
+  "id": 42,
+  "event_name": "Sample event",
+  "date": "2024-08-01T12:00:00.000Z",
+  "description": "Sample  for description for events",
+  "userId": 37
+}
+2024-07-30T07:37:45.689Z info: Events fetched: {
+  "0": {
+    "id": 42,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  },
+  "1": {
+    "id": 15,
+    "event_name": "Deepan",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode",
+    "userId": 12
+  },
+  "2": {
+    "id": 17,
+    "event_name": "Deepan Kumar",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode Technologies",
+    "userId": 14
+  },
+  "3": {
+    "id": 13,
+    "event_name": "Opcode Technologies",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup",
+    "userId": 12
+  },
+  "4": {
+    "id": 23,
+    "event_name": "Opcode Technologiesssss",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup Company in Gobichettipalayam",
+    "userId": 18
+  },
+  "5": {
+    "id": 33,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  },
+  "6": {
+    "id": 34,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  }
+}
+2024-07-30T07:37:58.323Z info: Event deleted: Event deleted {
+  "id": "42"
+}
+2024-07-30T07:38:28.682Z info: Event created: {
+  "id": 43,
+  "event_name": "Sample event",
+  "date": "2024-08-01T12:00:00.000Z",
+  "description": "Sample  for description for events",
+  "userId": 37
+}
+2024-07-30T07:38:48.810Z info: Events fetched: {
+  "0": {
+    "id": 43,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  },
+  "1": {
+    "id": 15,
+    "event_name": "Deepan",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode",
+    "userId": 12
+  },
+  "2": {
+    "id": 17,
+    "event_name": "Deepan Kumar",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode Technologies",
+    "userId": 14
+  },
+  "3": {
+    "id": 13,
+    "event_name": "Opcode Technologies",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup",
+    "userId": 12
+  },
+  "4": {
+    "id": 23,
+    "event_name": "Opcode Technologiesssss",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup Company in Gobichettipalayam",
+    "userId": 18
+  },
+  "5": {
+    "id": 33,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  },
+  "6": {
+    "id": 34,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  }
+}
+2024-07-30T09:30:30.268Z info: Event created: {
+  "id": 1,
+  "event_name": "New Event",
+  "date": "2024-07-30T09:30:30.061Z",
+  "description": "New Event Description"
+}
+2024-07-30T09:30:30.302Z info: Event updated: {
+  "id": 1,
+  "event_name": "Updated Event",
+  "date": "2024-07-30T09:30:30.061Z",
+  "description": "Updated Description"
+}
+2024-07-30T09:30:30.267Z info: Registering user 
+2024-07-30T09:30:30.321Z info: Event deleted: Event deleted 
+2024-07-30T09:30:30.345Z info: Event created: {
+  "id": 1,
+  "event_name": "New Event",
+  "date": "2024-07-30T09:30:30.062Z",
+  "description": "New Event Description"
+}
+2024-07-30T09:30:30.360Z info: Event updated: {
+  "id": 1,
+  "event_name": "Updated Event",
+  "date": "2024-07-30T09:30:30.062Z",
+  "description": "Updated Description"
+}
+2024-07-30T09:30:30.316Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-30T09:30:30.389Z info: User login attempt 
+2024-07-30T09:30:30.390Z info: User logged in successfully 
+2024-07-30T09:30:30.376Z info: Event deleted: Event deleted 
+2024-07-30T09:34:20.321Z info: Server is running on http://localhost:3000 
+2024-07-30T09:45:28.233Z warn: Invalid Token 
+2024-07-30T09:45:40.361Z info: User login attempt 
+2024-07-30T09:45:40.606Z info: User logged in: Kumar Deepan 
+2024-07-30T09:45:40.607Z info: User logged in successfully 
+2024-07-30T09:45:40.610Z error: Internal Server Error: Error
+    at new HttpError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\HttpError.js:17:22)
+    at new NotFoundError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\NotFoundError.js:10:9)
+    at ExpressDriver.handleSuccess (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\driver\express\ExpressDriver.js:294:23)
+    at E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\RoutingControllers.js:132:45 
+2024-07-30T09:46:05.158Z info: Events fetched: {
+  "0": {
+    "id": 43,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  },
+  "1": {
+    "id": 15,
+    "event_name": "Deepan",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode",
+    "userId": 12
+  },
+  "2": {
+    "id": 17,
+    "event_name": "Deepan Kumar",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode Technologies",
+    "userId": 14
+  },
+  "3": {
+    "id": 13,
+    "event_name": "Opcode Technologies",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup",
+    "userId": 12
+  },
+  "4": {
+    "id": 23,
+    "event_name": "Opcode Technologiesssss",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup Company in Gobichettipalayam",
+    "userId": 18
+  },
+  "5": {
+    "id": 33,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  },
+  "6": {
+    "id": 34,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  }
+}
+2024-07-30T09:47:02.140Z info: Server is running on http://localhost:3000 
+2024-07-30T09:47:04.727Z info: getEvents called 
+2024-07-30T09:47:04.728Z info: User Role: 
+2024-07-30T09:47:04.766Z info: Events fetched: {
+  "0": {
+    "id": 43,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  },
+  "1": {
+    "id": 15,
+    "event_name": "Deepan",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode",
+    "userId": 12
+  },
+  "2": {
+    "id": 17,
+    "event_name": "Deepan Kumar",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode Technologies",
+    "userId": 14
+  },
+  "3": {
+    "id": 13,
+    "event_name": "Opcode Technologies",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup",
+    "userId": 12
+  },
+  "4": {
+    "id": 23,
+    "event_name": "Opcode Technologiesssss",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup Company in Gobichettipalayam",
+    "userId": 18
+  },
+  "5": {
+    "id": 33,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  },
+  "6": {
+    "id": 34,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  }
+}
+2024-07-30T09:47:07.418Z info: getEvents called 
+2024-07-30T09:47:07.419Z info: User Role: 
+2024-07-30T09:47:07.451Z info: Events fetched: {
+  "0": {
+    "id": 43,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  },
+  "1": {
+    "id": 15,
+    "event_name": "Deepan",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode",
+    "userId": 12
+  },
+  "2": {
+    "id": 17,
+    "event_name": "Deepan Kumar",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode Technologies",
+    "userId": 14
+  },
+  "3": {
+    "id": 13,
+    "event_name": "Opcode Technologies",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup",
+    "userId": 12
+  },
+  "4": {
+    "id": 23,
+    "event_name": "Opcode Technologiesssss",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup Company in Gobichettipalayam",
+    "userId": 18
+  },
+  "5": {
+    "id": 33,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  },
+  "6": {
+    "id": 34,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  }
+}
+2024-07-30T09:47:14.976Z info: createEvent called 
+2024-07-30T09:47:14.978Z info: Request Body: {
+  "event_name": "Sample event",
+  "date": "2024-08-01T12:00:00Z",
+  "description": "Sample  for description for events"
+}
+2024-07-30T09:47:14.979Z info: User ID: 
+2024-07-30T09:47:15.007Z info: Event created: {
+  "id": 44,
+  "event_name": "Sample event",
+  "date": "2024-08-01T12:00:00.000Z",
+  "description": "Sample  for description for events",
+  "userId": 37
+}
+2024-07-30T09:47:20.703Z info: getEvents called 
+2024-07-30T09:47:20.704Z info: User Role: 
+2024-07-30T09:47:20.740Z info: Events fetched: {
+  "0": {
+    "id": 43,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  },
+  "1": {
+    "id": 44,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  },
+  "2": {
+    "id": 15,
+    "event_name": "Deepan",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode",
+    "userId": 12
+  },
+  "3": {
+    "id": 17,
+    "event_name": "Deepan Kumar",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Opcode Technologies",
+    "userId": 14
+  },
+  "4": {
+    "id": 13,
+    "event_name": "Opcode Technologies",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup",
+    "userId": 12
+  },
+  "5": {
+    "id": 23,
+    "event_name": "Opcode Technologiesssss",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup Company in Gobichettipalayam",
+    "userId": 18
+  },
+  "6": {
+    "id": 33,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  },
+  "7": {
+    "id": 34,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  }
+}
+2024-07-30T09:47:47.946Z info: deleteEvent called 
+2024-07-30T09:47:47.946Z info: Event ID: 
+2024-07-30T09:47:47.947Z info: User ID: 
+2024-07-30T09:47:47.947Z info: User Role: 
+2024-07-30T09:47:48.010Z info: Event deleted: Event deleted {
+  "id": "15"
+}
+2024-07-30T09:47:50.012Z info: deleteEvent called 
+2024-07-30T09:47:50.013Z info: Event ID: 
+2024-07-30T09:47:50.013Z info: User ID: 
+2024-07-30T09:47:50.014Z info: User Role: 
+2024-07-30T09:47:50.024Z info: Event deleted: Event deleted {
+  "id": "17"
+}
+2024-07-30T09:47:51.823Z info: deleteEvent called 
+2024-07-30T09:47:51.823Z info: Event ID: 
+2024-07-30T09:47:51.824Z info: User ID: 
+2024-07-30T09:47:51.824Z info: User Role: 
+2024-07-30T09:47:51.830Z info: Event deleted: Event deleted {
+  "id": "13"
+}
+2024-07-30T09:47:55.155Z info: deleteEvent called 
+2024-07-30T09:47:55.156Z info: Event ID: 
+2024-07-30T09:47:55.156Z info: User ID: 
+2024-07-30T09:47:55.156Z info: User Role: 
+2024-07-30T09:47:55.161Z error: Error deleting event: Unauthorized access {
+  "stack": "Error: Unauthorized access\n    at EventService.<anonymous> (E:\\alp\\OPCODE\\Logger\\Opcode\\dist\\services\\EventService.js:133:27)\n    at Generator.next (<anonymous>)\n    at fulfilled (E:\\alp\\OPCODE\\Logger\\Opcode\\dist\\services\\EventService.js:5:58)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-07-30T09:48:00.982Z info: deleteEvent called 
+2024-07-30T09:48:00.983Z info: Event ID: 
+2024-07-30T09:48:00.983Z info: User ID: 
+2024-07-30T09:48:00.983Z info: User Role: 
+2024-07-30T09:48:00.988Z error: Error deleting event: Unauthorized access {
+  "stack": "Error: Unauthorized access\n    at EventService.<anonymous> (E:\\alp\\OPCODE\\Logger\\Opcode\\dist\\services\\EventService.js:133:27)\n    at Generator.next (<anonymous>)\n    at fulfilled (E:\\alp\\OPCODE\\Logger\\Opcode\\dist\\services\\EventService.js:5:58)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-07-30T09:48:48.515Z info: User login attempt 
+2024-07-30T09:48:48.722Z info: User logged in: Deepan Siva 
+2024-07-30T09:48:48.723Z info: User logged in successfully 
+2024-07-30T09:48:48.725Z error: Internal Server Error: Error
+    at new HttpError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\HttpError.js:17:22)
+    at new NotFoundError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\NotFoundError.js:10:9)
+    at ExpressDriver.handleSuccess (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\driver\express\ExpressDriver.js:294:23)
+    at E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\RoutingControllers.js:132:45 
+2024-07-30T09:49:13.133Z info: getEvents called 
+2024-07-30T09:49:13.133Z info: User Role: 
+2024-07-30T09:49:13.233Z info: Events fetched: {
+  "0": {
+    "id": 43,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  },
+  "1": {
+    "id": 44,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  },
+  "2": {
+    "id": 23,
+    "event_name": "Opcode Technologiesssss",
+    "date": "2023-07-25T00:00:00.000Z",
+    "description": "Startup Company in Gobichettipalayam",
+    "userId": 18
+  },
+  "3": {
+    "id": 33,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  },
+  "4": {
+    "id": 34,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 30
+  }
+}
+2024-07-30T09:49:26.638Z info: deleteEvent called 
+2024-07-30T09:49:26.638Z info: Event ID: 
+2024-07-30T09:49:26.638Z info: User ID: 
+2024-07-30T09:49:26.638Z info: User Role: 
+2024-07-30T09:49:26.708Z info: Event deleted: Event deleted {
+  "id": "23"
+}
+2024-07-30T09:49:30.748Z info: deleteEvent called 
+2024-07-30T09:49:30.748Z info: Event ID: 
+2024-07-30T09:49:30.749Z info: User ID: 
+2024-07-30T09:49:30.749Z info: User Role: 
+2024-07-30T09:49:30.754Z info: Event deleted: Event deleted {
+  "id": "33"
+}
+2024-07-30T09:49:33.951Z info: deleteEvent called 
+2024-07-30T09:49:33.951Z info: Event ID: 
+2024-07-30T09:49:33.952Z info: User ID: 
+2024-07-30T09:49:33.952Z info: User Role: 
+2024-07-30T09:49:33.956Z error: Error deleting event: Unauthorized access {
+  "stack": "Error: Unauthorized access\n    at EventService.<anonymous> (E:\\alp\\OPCODE\\Logger\\Opcode\\dist\\services\\EventService.js:133:27)\n    at Generator.next (<anonymous>)\n    at fulfilled (E:\\alp\\OPCODE\\Logger\\Opcode\\dist\\services\\EventService.js:5:58)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+2024-07-30T09:49:36.718Z info: deleteEvent called 
+2024-07-30T09:49:36.718Z info: Event ID: 
+2024-07-30T09:49:36.718Z info: User ID: 
+2024-07-30T09:49:36.719Z info: User Role: 
+2024-07-30T09:49:36.725Z info: Event deleted: Event deleted {
+  "id": "34"
+}
+2024-07-30T09:49:42.065Z info: getEvents called 
+2024-07-30T09:49:42.066Z info: User Role: 
+2024-07-30T09:49:42.074Z info: Events fetched: {
+  "0": {
+    "id": 43,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  },
+  "1": {
+    "id": 44,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  }
+}
+2024-07-30T09:50:05.164Z info: createEvent called 
+2024-07-30T09:50:05.165Z info: Request Body: {
+  "event_name": "Deepan",
+  "date": "2024-08-01T12:00:00Z",
+  "description": "Deepan"
+}
+2024-07-30T09:50:05.165Z info: User ID: 
+2024-07-30T09:50:05.248Z info: Event created: {
+  "id": 45,
+  "event_name": "Deepan",
+  "date": "2024-08-01T12:00:00.000Z",
+  "description": "Deepan",
+  "userId": 31
+}
+2024-07-30T09:50:11.008Z info: getEvents called 
+2024-07-30T09:50:11.008Z info: User Role: 
+2024-07-30T09:50:11.025Z info: Events fetched: {
+  "0": {
+    "id": 43,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  },
+  "1": {
+    "id": 44,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  },
+  "2": {
+    "id": 45,
+    "event_name": "Deepan",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Deepan",
+    "userId": 31
+  }
+}
+2024-07-30T09:50:35.519Z info: User login attempt 
+2024-07-30T09:50:35.666Z info: User logged in: Kumar 
+2024-07-30T09:50:35.668Z info: User logged in successfully 
+2024-07-30T09:50:35.669Z error: Internal Server Error: Error
+    at new HttpError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\HttpError.js:17:22)
+    at new NotFoundError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\NotFoundError.js:10:9)
+    at ExpressDriver.handleSuccess (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\driver\express\ExpressDriver.js:294:23)
+    at E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\RoutingControllers.js:132:45 
+2024-07-30T09:50:58.305Z warn: User role user not authorized 
+2024-07-30T09:51:54.201Z info: User login attempt 
+2024-07-30T09:51:54.343Z info: User logged in: Kumar 
+2024-07-30T09:51:54.344Z info: User logged in successfully 
+2024-07-30T09:51:54.344Z error: Internal Server Error: Error
+    at new HttpError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\HttpError.js:17:22)
+    at new NotFoundError (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\http-error\NotFoundError.js:10:9)
+    at ExpressDriver.handleSuccess (E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\driver\express\ExpressDriver.js:294:23)
+    at E:\alp\OPCODE\Logger\Opcode\node_modules\routing-controllers\cjs\RoutingControllers.js:132:45 
+2024-07-30T09:55:04.108Z info: Server is running on http://localhost:3000 
+2024-07-30T09:56:31.078Z info: Server is running on http://localhost:3000 
+2024-07-30T09:56:43.960Z info: Server is running on http://localhost:3000 
+2024-07-30T09:57:01.365Z info: Server is running on http://localhost:3000 
+2024-07-30T09:57:08.316Z info: User login attempt 
+2024-07-30T09:57:08.435Z info: User logged in: Kumar 
+2024-07-30T09:57:29.169Z info: Server is running on http://localhost:3000 
+2024-07-30T09:58:45.652Z info: User login attempt 
+2024-07-30T09:58:45.832Z info: User logged in: Kumar 
+2024-07-30T09:59:19.336Z info: Server is running on http://localhost:3000 
+2024-07-30T09:59:25.860Z warn: User role user not authorized 
+2024-07-30T09:59:37.402Z info: User login attempt 
+2024-07-30T09:59:37.564Z info: User logged in: Kumar 
+2024-07-30T10:00:39.620Z info: Server is running on http://localhost:3000 
+2024-07-30T10:01:02.640Z info: User login attempt 
+2024-07-30T10:01:02.835Z info: User logged in: Deepan 
+2024-07-30T10:05:14.852Z info: Server is running on http://localhost:3000 
+2024-07-30T10:05:29.063Z info: User login attempt 
+2024-07-30T10:05:29.232Z info: User logged in: Deepan Kumar 
+2024-07-30T10:05:29.233Z info: User logged in successfully 
+2024-07-30T10:05:42.574Z warn: User role user not authorized 
+2024-07-30T10:05:45.584Z warn: User role user not authorized 
+2024-07-30T10:06:47.225Z info: getEvents called 
+2024-07-30T10:06:47.226Z info: User Role: 
+2024-07-30T10:06:47.282Z info: Events fetched: {
+  "0": {
+    "id": 43,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  },
+  "1": {
+    "id": 44,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  },
+  "2": {
+    "id": 45,
+    "event_name": "Deepan",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Deepan",
+    "userId": 31
+  }
+}
+2024-07-30T10:07:08.729Z info: createEvent called 
+2024-07-30T10:07:08.730Z info: Request Body: {
+  "event_name": "Kumar",
+  "date": "2024-08-01T12:00:00Z",
+  "description": "Kumar"
+}
+2024-07-30T10:07:08.732Z info: User ID: 
+2024-07-30T10:07:08.797Z info: Event created: {
+  "id": 46,
+  "event_name": "Kumar",
+  "date": "2024-08-01T12:00:00.000Z",
+  "description": "Kumar",
+  "userId": 17
+}
+2024-07-30T10:07:14.211Z info: getEvents called 
+2024-07-30T10:07:14.212Z info: User Role: 
+2024-07-30T10:07:14.229Z info: Events fetched: {
+  "0": {
+    "id": 43,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  },
+  "1": {
+    "id": 44,
+    "event_name": "Sample event",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Sample  for description for events",
+    "userId": 37
+  },
+  "2": {
+    "id": 45,
+    "event_name": "Deepan",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Deepan",
+    "userId": 31
+  },
+  "3": {
+    "id": 46,
+    "event_name": "Kumar",
+    "date": "2024-08-01T12:00:00.000Z",
+    "description": "Kumar",
+    "userId": 17
+  }
+}
+2024-07-30T10:07:48.996Z info: Registering user 
+2024-07-30T10:07:49.028Z info: User registered successfully {
+  "id": 1,
+  "username": "testuser",
+  "password": "password",
+  "role": "user"
+}
+2024-07-30T10:07:49.056Z info: createEvent called 
+2024-07-30T10:07:49.051Z info: User login attempt 
+2024-07-30T10:07:49.052Z info: User logged in successfully 
+2024-07-30T10:07:49.067Z info: Request Body: {
+  "event_name": "New Event",
+  "date": "2024-07-30T10:07:48.848Z",
+  "description": "New Event Description"
+}
+2024-07-30T10:07:49.068Z info: User ID: 
+2024-07-30T10:07:49.070Z info: Event created: {
+  "id": 1,
+  "event_name": "New Event",
+  "date": "2024-07-30T10:07:48.848Z",
+  "description": "New Event Description"
+}
+2024-07-30T10:07:49.101Z info: updateEvent called 
+2024-07-30T10:07:49.102Z info: Event ID: 
+2024-07-30T10:07:49.104Z info: Request Body: {
+  "event_name": "Updated Event",
+  "date": "2024-07-30T10:07:48.848Z",
+  "description": "Updated Description"
+}
+2024-07-30T10:07:49.105Z info: User ID: 
+2024-07-30T10:07:49.107Z info: User Role: 
+2024-07-30T10:07:49.108Z info: Event updated: {
+  "id": 1,
+  "event_name": "Updated Event",
+  "date": "2024-07-30T10:07:48.848Z",
+  "description": "Updated Description"
+}
+2024-07-30T10:07:49.125Z info: deleteEvent called 
+2024-07-30T10:07:49.126Z info: Event ID: 
+2024-07-30T10:07:49.127Z info: User ID: 
+2024-07-30T10:07:49.127Z info: User Role: 
+2024-07-30T10:07:49.128Z info: Event deleted: Event deleted 
+2024-07-30T10:07:49.150Z info: createEvent called 
+2024-07-30T10:07:49.151Z info: Request Body: {
+  "event_name": "New Event",
+  "date": "2024-07-30T10:07:48.849Z",
+  "description": "New Event Description"
+}
+2024-07-30T10:07:49.152Z info: User ID: 
+2024-07-30T10:07:49.153Z info: Event created: {
+  "id": 1,
+  "event_name": "New Event",
+  "date": "2024-07-30T10:07:48.849Z",
+  "description": "New Event Description"
+}
+2024-07-30T10:07:49.169Z info: updateEvent called 
+2024-07-30T10:07:49.170Z info: Event ID: 
+2024-07-30T10:07:49.173Z info: Request Body: {
+  "event_name": "Updated Event",
+  "date": "2024-07-30T10:07:48.849Z",
+  "description": "Updated Description"
+}
+2024-07-30T10:07:49.174Z info: User ID: 
+2024-07-30T10:07:49.174Z info: User Role: 
+2024-07-30T10:07:49.175Z info: Event updated: {
+  "id": 1,
+  "event_name": "Updated Event",
+  "date": "2024-07-30T10:07:48.849Z",
+  "description": "Updated Description"
+}
+2024-07-30T10:07:49.189Z info: deleteEvent called 
+2024-07-30T10:07:49.190Z info: Event ID: 
+2024-07-30T10:07:49.191Z info: User ID: 
+2024-07-30T10:07:49.192Z info: User Role: 
+2024-07-30T10:07:49.197Z info: Event deleted: Event deleted 

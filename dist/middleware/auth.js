@@ -31,15 +31,17 @@ class AuthMiddleware {
                 catch (error) {
                     console.log('authenticateJWT: Invalid Token', error);
                     logger_1.default.warn('Invalid Token');
-                    res.status(403).json({ error: 'Forbidden' }).end(); // Use end() to indicate no further processing
-                    return; // Ensure the function exits
+                    if (!res.headersSent) {
+                        res.status(403).json({ error: 'Forbidden' }).end(); // Use end() to indicate no further processing
+                    }
                 }
             }
             else {
                 console.log('authenticateJWT: No Token Provided');
                 logger_1.default.warn('No Token Provided');
-                res.status(401).json({ error: 'Unauthorized' }).end(); // Use end() to indicate no further processing
-                return; // Ensure the function exits
+                if (!res.headersSent) {
+                    res.status(401).json({ error: 'Unauthorized' }).end(); // Use end() to indicate no further processing
+                }
             }
         });
     }
@@ -52,10 +54,13 @@ class AuthMiddleware {
             if (!req.user || !roles.includes(req.user.role)) {
                 console.log(`authorizeRoles: User role ${(_b = req.user) === null || _b === void 0 ? void 0 : _b.role} not authorized`);
                 logger_1.default.warn(`User role ${(_c = req.user) === null || _c === void 0 ? void 0 : _c.role} not authorized`);
-                res.status(403).json({ error: 'Unauthorized access' }).end(); // Use end() to indicate no further processing
-                return; // Ensure the function exits
+                if (!res.headersSent) {
+                    res.status(403).json({ error: 'Unauthorized access' }).end(); // Use end() to indicate no further processing
+                }
             }
-            next();
+            else {
+                next();
+            }
         };
     }
 }

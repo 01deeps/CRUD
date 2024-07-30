@@ -28,6 +28,7 @@ exports.UserController = void 0;
 const routing_controllers_1 = require("routing-controllers");
 const UserService_1 = __importDefault(require("../services/UserService"));
 const logger_1 = __importDefault(require("../config/logger"));
+const typedi_1 = require("typedi");
 let UserController = class UserController {
     register(req, res, body) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -35,11 +36,11 @@ let UserController = class UserController {
                 logger_1.default.info('Registering user');
                 const user = yield UserService_1.default.register(body);
                 logger_1.default.info('User registered successfully', user);
-                res.status(201).json(user);
+                return res.status(201).json(user);
             }
             catch (error) {
                 logger_1.default.error('Error registering user', error);
-                res.status(500).json({ message: 'Error registering user. Please try again later.' });
+                return res.status(500).json({ message: 'Error registering user. Please try again later.' });
             }
         });
     }
@@ -49,11 +50,11 @@ let UserController = class UserController {
                 logger_1.default.info('User login attempt');
                 const { token } = yield UserService_1.default.login(body);
                 logger_1.default.info('User logged in successfully');
-                res.status(200).json({ token });
+                return res.status(200).json({ token });
             }
             catch (error) {
                 logger_1.default.warn('Invalid login attempt', error);
-                res.status(401).json({ message: 'Invalid credentials. Please check your username and password.' });
+                return res.status(401).json({ message: 'Invalid credentials. Please check your username and password.' });
             }
         });
     }
@@ -77,6 +78,8 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "login", null);
 UserController = __decorate([
+    (0, typedi_1.Service)(),
     (0, routing_controllers_1.JsonController)()
 ], UserController);
 exports.UserController = UserController;
+exports.default = UserController;

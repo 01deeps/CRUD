@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.85% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>9/21</span>
+                <span class='fraction'>10/25</span>
             </div>
         
             
@@ -116,7 +116,11 @@
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -144,10 +148,12 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -163,7 +169,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -193,14 +201,16 @@ class AuthMiddleware {
       } catch (error) {
 <span class="cstat-no" title="statement not covered" >        console.log('authenticateJWT: Invalid Token', error);</span>
 <span class="cstat-no" title="statement not covered" >        logger.warn('Invalid Token');</span>
-<span class="cstat-no" title="statement not covered" >        res.status(403).json({ error: 'Forbidden' }).end(); </span>// Use end() to indicate no further processing
-<span class="cstat-no" title="statement not covered" >        return; </span>// Ensure the function exits
+<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (!res.headersSent) {</span>
+<span class="cstat-no" title="statement not covered" >          res.status(403).json({ error: 'Forbidden' }).end(); </span>// Use end() to indicate no further processing
+        }
       }
     } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >      console.log('authenticateJWT: No Token Provided');</span>
 <span class="cstat-no" title="statement not covered" >      logger.warn('No Token Provided');</span>
-<span class="cstat-no" title="statement not covered" >      res.status(401).json({ error: 'Unauthorized' }).end(); </span>// Use end() to indicate no further processing
-<span class="cstat-no" title="statement not covered" >      return; </span>// Ensure the function exits
+<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!res.headersSent) {</span>
+<span class="cstat-no" title="statement not covered" >        res.status(401).json({ error: 'Unauthorized' }).end(); </span>// Use end() to indicate no further processing
+      }
     }
   }
 &nbsp;
@@ -213,10 +223,12 @@ class AuthMiddleware {
       <span class="missing-if-branch" title="if path not taken" >I</span>if (!req.user || !roles.includes(req.user.role)) {
 <span class="cstat-no" title="statement not covered" >        console.log(`authorizeRoles: User role ${req.user?.role} not authorized`);</span>
 <span class="cstat-no" title="statement not covered" >        logger.warn(`User role ${req.user?.role} not authorized`);</span>
-<span class="cstat-no" title="statement not covered" >        res.status(403).json({ error: 'Unauthorized access' }).end(); </span>// Use end() to indicate no further processing
-<span class="cstat-no" title="statement not covered" >        return; </span>// Ensure the function exits
+<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (!res.headersSent) {</span>
+<span class="cstat-no" title="statement not covered" >          res.status(403).json({ error: 'Unauthorized access' }).end(); </span>// Use end() to indicate no further processing
+        }
+      } else {
+        next();
       }
-      next();
     };
   }
 }
@@ -229,7 +241,7 @@ export default new AuthMiddleware();
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-07-26T12:45:38.772Z
+                at 2024-07-30T10:08:06.666Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

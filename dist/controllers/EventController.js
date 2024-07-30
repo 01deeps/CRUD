@@ -28,36 +28,38 @@ exports.EventController = void 0;
 const routing_controllers_1 = require("routing-controllers");
 const EventService_1 = __importDefault(require("../services/EventService"));
 const auth_1 = __importDefault(require("../middleware/auth"));
+const typedi_1 = require("typedi"); // Import Service decorator
+const logger_1 = __importDefault(require("../config/logger")); // Import logger
 let EventController = class EventController {
     createEvent(req, eventData, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log('createEvent called');
-            console.log('Request Body:', eventData);
-            console.log('User ID:', req.user.id);
+            logger_1.default.info('createEvent called');
+            logger_1.default.info('Request Body:', eventData);
+            logger_1.default.info('User ID:', req.user.id);
             try {
                 const userId = req.user.id;
                 const event = yield EventService_1.default.createEvent(eventData, userId);
-                console.log('Event created:', event);
+                logger_1.default.info('Event created:', event);
                 return res.status(201).json(event);
             }
             catch (error) {
-                console.log('Error creating event:', error);
+                logger_1.default.error('Error creating event:', error);
                 return res.status(500).json({ message: 'Failed to create event. Please check the request data and try again.' });
             }
         });
     }
     getEvents(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log('getEvents called');
-            console.log('User Role:', req.user.role);
+            logger_1.default.info('getEvents called');
+            logger_1.default.info('User Role:', req.user.role);
             try {
                 const userRole = req.user.role;
                 const events = yield EventService_1.default.getEvents(userRole);
-                console.log('Events fetched:', events);
+                logger_1.default.info('Events fetched:', events);
                 return res.status(200).json(events);
             }
             catch (error) {
-                console.log('Error fetching events:', error);
+                logger_1.default.error('Error fetching events:', error);
                 const statusCode = error.message === 'Unauthorized access' ? 401 : 500;
                 return res.status(statusCode).json({ message: error.message });
             }
@@ -65,20 +67,20 @@ let EventController = class EventController {
     }
     updateEvent(req, id, eventData, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log('updateEvent called');
-            console.log('Event ID:', id);
-            console.log('Request Body:', eventData);
-            console.log('User ID:', req.user.id);
-            console.log('User Role:', req.user.role);
+            logger_1.default.info('updateEvent called');
+            logger_1.default.info('Event ID:', id);
+            logger_1.default.info('Request Body:', eventData);
+            logger_1.default.info('User ID:', req.user.id);
+            logger_1.default.info('User Role:', req.user.role);
             try {
                 const userId = req.user.id;
                 const userRole = req.user.role;
                 const result = yield EventService_1.default.updateEvent(id, eventData, userId, userRole);
-                console.log('Event updated:', result);
+                logger_1.default.info('Event updated:', result);
                 return res.status(200).json(result);
             }
             catch (error) {
-                console.log('Error updating event:', error);
+                logger_1.default.error('Error updating event:', error);
                 const statusCode = error.message === 'Unauthorized access' ? 401 : 500;
                 return res.status(statusCode).json({ message: error.message });
             }
@@ -86,19 +88,19 @@ let EventController = class EventController {
     }
     deleteEvent(req, id, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log('deleteEvent called');
-            console.log('Event ID:', id);
-            console.log('User ID:', req.user.id);
-            console.log('User Role:', req.user.role);
+            logger_1.default.info('deleteEvent called');
+            logger_1.default.info('Event ID:', id);
+            logger_1.default.info('User ID:', req.user.id);
+            logger_1.default.info('User Role:', req.user.role);
             try {
                 const userId = req.user.id;
                 const userRole = req.user.role;
                 const result = yield EventService_1.default.deleteEvent(id, userId, userRole);
-                console.log('Event deleted:', result);
+                logger_1.default.info('Event deleted:', result);
                 return res.status(200).json(result);
             }
             catch (error) {
-                console.log('Error deleting event:', error);
+                logger_1.default.error('Error deleting event:', error);
                 const statusCode = error.message === 'Unauthorized access' ? 401 : 500;
                 return res.status(statusCode).json({ message: error.message });
             }
@@ -146,6 +148,9 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], EventController.prototype, "deleteEvent", null);
 EventController = __decorate([
+    (0, typedi_1.Service)() // Register this controller as a service
+    ,
     (0, routing_controllers_1.JsonController)()
 ], EventController);
 exports.EventController = EventController;
+exports.default = EventController;

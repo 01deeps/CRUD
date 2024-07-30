@@ -14,18 +14,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const routing_controllers_1 = require("routing-controllers");
+const typedi_1 = require("typedi");
 const database_1 = require("./config/database");
-const EventController_1 = require("./controllers/EventController");
-const UserController_1 = require("./controllers/UserController");
 const auth_1 = __importDefault(require("./middleware/auth"));
+const path_1 = __importDefault(require("path"));
+const fs_1 = __importDefault(require("fs"));
+const logger_1 = __importDefault(require("./config/logger"));
 require("reflect-metadata");
+// Use typedi container
+(0, routing_controllers_1.useContainer)(typedi_1.Container);
 class Server {
     constructor(port) {
         this.port = port;
+        // Dynamically load controllers
+        const controllers = this.loadControllers(path_1.default.join(__dirname, 'controllers'));
         this.app = (0, routing_controllers_1.createExpressServer)({
-            controllers: [EventController_1.EventController, UserController_1.UserController],
+            controllers: controllers,
             middlewares: [auth_1.default.authenticateJWT, auth_1.default.authorizeRoles('user', 'admin')],
-            defaultErrorHandler: false,
+            defaultErrorHandler: true, // Enable default error handler
         });
         this.configureMiddleware();
         this.configureErrorHandling();
@@ -35,18 +41,35 @@ class Server {
     }
     configureErrorHandling() {
         this.app.use((err, req, res, next) => {
-            console.error('Internal Server Error:', err.stack);
+            logger_1.default.error(`Internal Server Error: ${err.stack}`);
             if (!res.headersSent) {
                 res.status(500).send('Internal Server Error');
             }
         });
     }
+    loadControllers(controllersPath) {
+        const controllers = [];
+        fs_1.default.readdirSync(controllersPath).forEach(file => {
+            if (file.endsWith('.ts') || file.endsWith('.js')) {
+                const controller = require(path_1.default.join(controllersPath, file)).default || require(path_1.default.join(controllersPath, file));
+                if (controller) {
+                    controllers.push(controller);
+                }
+            }
+        });
+        return controllers;
+    }
     start() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.database.connect();
-            this.app.listen(this.port, () => {
-                console.log(`Server is running on http://localhost:${this.port}`);
-            });
+            try {
+                yield database_1.database.connect();
+                this.app.listen(this.port, () => {
+                    logger_1.default.info(`Server is running on http://localhost:${this.port}`);
+                });
+            }
+            catch (error) {
+                logger_1.default.error('Failed to start server:', error);
+            }
         });
     }
 }

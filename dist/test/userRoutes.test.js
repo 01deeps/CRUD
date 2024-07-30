@@ -16,6 +16,8 @@ const supertest_1 = __importDefault(require("supertest"));
 const routing_controllers_1 = require("routing-controllers");
 const UserController_1 = require("../controllers/UserController");
 const dotenv_1 = __importDefault(require("dotenv"));
+// jest.setup.ts
+require("reflect-metadata");
 // Load environment variables from a .env file
 dotenv_1.default.config();
 // Create a custom express server instance
